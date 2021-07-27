@@ -1,0 +1,674 @@
+{include="header"}
+  
+  
+<title>{$jz['title']}</title>
+{include="js"}
+  
+{include="daohang"}
+<!--e-->  
+
+
+
+
+
+
+
+	<div id="percentageCounter"></div>
+	</div><!-- .top-bar -->
+	<div class="container">
+	<main id="main" class="site-main">	 
+	<div class="row">
+	<div class="col-md-9 contpost" id="content" >  
+       
+       
+       
+    	<article class="post">
+			<header class="entry-header page-header" >
+			    <div class="">            
+				<span class="badge badge-hot"><a href="{$v['url']}">{$type['classname']}</a></span>
+                </div>
+				<h1 class="entry-title page-title">{$jz['title']}</h1>				
+				<div class="contimg">
+				<div class="author-infos" data-id="96"><img src="{$tpl}style//picture/1eb7441695154cd68d5f831af1516ee8.gif" srcset="https://q2.qlogo.cn/headimg_dl?dst_uin=872872015&spec=100" class="avatar" height="35" width="35">				<div class="author-info-card">
+					   <!--作者卡片-->
+                       <!--作者卡片-->
+					   </div>
+				</div>
+				</div>				
+				<div class="entry-meta contpost-meta">					    
+				    <a href="https://www.acgmkan.com/author/1">
+				    {fun adminInfo($jz['userid'],'name')}					</a><span class="separator">/</span>					
+										<time datetime="2020-08-21T16:21:09+08:00">08-21</time>
+										<span class="separator">/</span>
+					<a href="https://www.acgmkan.com/96.html#comments">0 评论</a>
+					<span class="separator">/</span>
+					{fun incrData('article',$jz['id'],'hits')} 阅读
+					<span class="separator">/</span>{fun jz_zan($jz['tid'],$jz['id'])} 赞
+										<div class="site-lins">
+<!-- 页面为文章单页时 -->
+<span><a href="{$webconf['domain']}" title="{$webconf['web_name']}">首页</a> <span class="sep">›</span> <a href="{$type['url']}">{$type['classname']}</a> <span class="sep">›</span></span>
+</div>				</div>
+				<div class="postArticle-meta">
+				
+				</div>
+				<div class="border-theme"></div>
+			</header>
+       
+       
+       
+       <!----开始判断是否购买或者付费------>
+              <p>	{$jz['description']}</p> 
+	<p>{$jz['body']}</p>  
+
+
+
+{if($islogin)}
+{php   $body = '||'.$jz['tid'].'-'.$jz['id'].'-';/}
+{loop table="orders" userid="$member['id']" ispay="1" like="body|$body" as="v"}
+
+
+<iframe border="0" src="https://bvtt.cn/M3U8/play.php?url={$jz['spurl']}" class="dmplay_sl" width="100%" height="100%" marginWidth="0" frameSpacing="0" marginHeight="0" frameBorder="0" scrolling="no" vspale="0" noResize></iframe>
+
+{/loop}
+
+
+{if($v_n>0)}
+
+<BR></BR>
+<a href="{$jz['fufei']}"  class="separator"  type="button">
+<i class="icon-basket">
+        
+</i>
+    
+ 点我下载工具
+    
+</a>
+温馨提示：如果下载地址点不开就代表无任何工具可下载！
+<BR></BR>
+
+
+{else}
+
+<iframe border="0" src="https://bvtt.cn/M3U8/play.php?url" class="dmplay_sl" width="100%" height="100%" marginWidth="0" frameSpacing="0" marginHeight="0" frameBorder="0" scrolling="no" vspale="0" noResize></iframe>
+
+
+ <div class="Copyrightnew">
+     
+    <br>
+<br>
+    
+内容需付费,暂时无法查看！
+
+<br> 
+<br> 
+<br>  
+<button onclick="addcart({$type['id']},{$jz['id']},1)" class="separator"  type="button">
+<i class="icon-basket"></i> 加入购物车</button>
+<button onclick="addcart({$type['id']},{$jz['id']},1)" class="separator"  type="button">
+<i class="icon-basket"></i> 价格:{$jz['price']} 积分</button>
+
+<br> </br>
+     
+     </div>         
+
+<br> </br>
+{/if}
+
+{else}
+<br>
+<br>
+    
+未登录,无法查看下载地址！
+
+<br> 
+<br><br><br><br><br>
+
+
+{/if}
+
+
+
+
+
+
+<!------结束判断----->
+
+
+
+
+
+
+
+
+
+                
+	
+			<!--文章上方广告-->
+            
+                      
+			<div class="">
+			    	
+			
+                
+                
+        
+              
+                                <div class="Copyrightnew">本文来自投稿，不代表本站立场，如若转载，请注明出处：{$jz['url']}</div>               
+                 
+              </div>  
+                          
+                <!--点赞s-->
+                
+                                
+                <div class="dianzan text-center">
+                    
+                <button  type="button" id="agree-btn" data-cid="121" onclick="likes({$type['id']},{$jz['id']})" data-url="{fun U('user/likesAction')}">
+                <i class="icon iconfont icon-dianzan"></i>  
+                <span>赞</span>
+                <span class="agree-num">{fun jz_zan($jz['tid'],$jz['id'])}</span>
+                </button>
+               
+                <!--点赞e-->         
+              	
+              </div>
+              
+            <footer class="sider-footer">
+		<!--	<div class="pos-r clearfix">-->
+		<!--		<div class="share-box ">-->
+
+  <!--      <div class="weixin mouh" id="share-weixin">-->
+		<!--	<i class="icon iconfont icon-icon-test38"></i>-->
+		<!--	<div class="wx-t-x pos-a hide box" id="weixin-box">-->
+		<!--        <img class="qrcode fl bor-3" src="https://api.pwmqr.com/qrcode/create/?url={$jz['url']}">-->
+		<!--    </div>-->
+		<!--</div>-->
+  <!--      <span class="dot"></span>-->
+  <!--      <a href=""  class="qzone">-->
+		<!--<i class="icon iconfont icon-QQkongjian"></i>-->
+		<!--</a>-->
+  <!--      <span class="dot"></span>-->
+  <!--      <a href="javascript:Share('tqq')" class="qq">-->
+		<!--<i class="icon iconfont icon-qq"></i>-->
+		<!--</a>-->
+  <!--      <span class="dot"></span>-->
+  <!--      <a href="javascript:Share('sina')" class="weibo">-->
+		<!--<i class="icon iconfont icon-weibo"></i>-->
+		<!--</a>-->
+                  
+  <!--      <span class="dot"></span>-->
+  <!--      <a href="#comments" class="taolunqu">-->
+		<!--<i class="icon iconfont icon-taolunqu"></i>-->
+		<!--</a>-->
+          
+  <!--      <span class="dot"></span>-->
+  <!--      <a href="javascript:addFavorite2()" class="weibo">-->
+		<!--<i class="icon iconfont icon-fuzhi"></i>-->
+		<!--</a>          -->
+	 <!--   </div>              -->
+        
+        
+		<!--</div>-->
+
+</footer>   
+			<footer class="entry-footer fixed" id="footfix">
+			    <div class="entry-bar-inner">
+				<div class="post-tags">
+				   
+				<a href="{$v['url']}">{$classtypedata[$v['tid']]['classname']}</a>                				</div>
+				<div class="readlist">
+				<div href="javascript:;" id="mClick" class="mobile_click">
+                    <div class="share">					
+					<div class="Menu-item"><a href="javascript:Share('web_qq')"><i class="icon iconfont icon-qq"></i> QQ 分享</a></div>
+					<div class="Menu-item"><a href="javascript:Share('sina')"><i class="icon iconfont icon-weibo"></i> 微博分享</a></div>
+					<div class="Menu-item"><i class="icon iconfont icon-icon-test38"></i> 微信分享<img src="https://api.pwmqr.com/qrcode/create/?url={$jz['url']}"/>
+				</div></div>
+				<div><i class="icon iconfont icon-fenxiang" title="分享转发"> </i>分享</div>
+				</div>
+				<div class="read_outer"><a class="comiis_poster_a" href="javascript:;" title="生成封面"><i class="icon iconfont icon-tupian"></i> 封面</a></div>				<div class="read_outer"></div>
+				</div>
+				</div>
+			</footer>
+			</article>
+<!--下一篇上一篇--> 
+<div class="entry-page">
+{if($aprev)}
+<div class="entry-page-prev j-lazy" style="background-image: url(static/images/174005898.png)">
+<a href="{$aprev['url']}"> <span>{$aprev['title']}</span> 
+</a><div class="entry-page-info"> <span class="pull-left">« 上一篇</span> <span class="pull-right">{fun date('m-d',$v['addtime'])}
+
+</span></div></div>
+{else}
+<div class="entry-page-prev j-lazy" style="background-image: url(static/images/174005898.png)">
+<a > <span>到头了</span> 
+</a><div class="entry-page-info"> <span class="pull-left">« 上一篇</span> <span class="pull-right">{fun date('m-d',$v['addtime'])}
+
+</span></div></div>
+{/if}
+{if($anext)}
+<div class="entry-page-next j-lazy" style="background-image: url(static/images/2311276024.png)">
+<a href="{$anext['url']}"><span>{$anext['title']}</span>
+ </a><div class="entry-page-info"> <span class="pull-right">下一篇  »</span> <span class="pull-left">{fun date('m-d',$v['addtime'])}</span></div></div> 
+ {else}
+ <div class="entry-page-next j-lazy" style="background-image: url(static/images/2311276024.png)">
+<a><span>到底了</span>
+ </a><div class="entry-page-info"> <span class="pull-right">下一篇  »</span> <span class="pull-left">{fun date('m-d',$v['addtime'])}</span></div></div> 
+ {/if}
+</div>
+<!--下一篇上一篇-->
+	  
+	<!--相关文章s-->    
+        <!--评论开启-->
+    						
+<!--<div class="part-mor">-->
+<!--  <h3 class="section-title">-->
+<!--      <span><i class="icon iconfont icon-icon-test25"></i> 相关推荐 </span>    -->
+<!--  </h3>-->
+<!--  <div class="section-cont">-->
+<!--    <div class="items">	  -->
+<!--	{loop table="article" tid="$type['id']" notin="id|$jz['id']" isall="1" orderby="hits desc"  isshow="1" limit="4" as="v"}-->
+<!--                  <div class="item"><div class="hunter-item"><a href="{$jz['url']}" ><div class="hunter-thumb"><i class="thumb " style="background-image:url({$jz['litpic']})"></i></div><h2>{$jz['title']}</h2><!--<h4><span class="hunter-tag btn btn-default">动漫视频</span> <span class="hunter-product">1.4k阅读</span></h4>--><!---</a></div></div>-->
+	  	      
+<!--                  {/loop}-->
+	  	      
+            		  
+<!--	  </div>-->
+<!--  </div>-->
+<!--</div>      -->
+    	<!--相关文章e-->
+	
+{if(!$islogin)}
+<div id="comments">
+   
+            <div id="respond-post-316" class="respond">
+
+        	
+        <div class="cancel-comment-reply">
+        <a id="cancel-comment-reply-link" href="" rel="nofollow" style="display:none" onclick="return TypechoComment.cancelReply();">取消回复</a>        </div>
+    
+
+        <h3 id="response" class="comment-reply-title section-title"><span><i class="icon iconfont icon-pinglun"></i> 发表评论</span></h3>
+        <form id="new_comment_form" method="post" action="" _lpchecked="1">
+        <!--遮罩-->
+                <div class="comment-overlay"> <div class="comment-overlay-login"><p>您必须<a href="{fun U('login/index')}">登录</a>才能评论哦~</p></div> </div>
+                <!--遮罩-->
+		<div class="comment_triggered" style="display: block;">
+            <div class="input_body inp">
+			                                <ul class="ident">
+                    <li>
+                        <input type="text" name="author" placeholder="昵称*" >
+                    </li>
+                    <li>
+                        <input type="mail" name="mail" placeholder="邮件*" >
+                    </li>                   
+                </ul>
+               
+			                                       
+            </div>
+        </div>    
+		<div class="new_comment"><textarea name="text" rows="3" class="textarea_box OwO-textarea" style="height: auto;" placeholder="说点什么把~" required></textarea></div> 
+		<div class="input_body bottom"> <span class="OwO"></span><input type="submit" value="提交评论" class="comment_submit_button c_button">  </div> 
+		</form>			 
+    </div>
+            <div class="allcomment-empy">成为第一个评论的人</div>
+	</div>
+	</div>
+{else}
+
+
+        <h3 id="response" class="comment-reply-title section-title"><span><i class="icon iconfont icon-pinglun"></i> 发表评论</span></h3>
+        <form id="new_comment_form" method="post" action="" _lpchecked="1">
+        <!--遮罩-->
+                <!--遮罩-->
+		<div class="comment_triggered" style="display: block;">
+            <div class="input_body inp">
+			 					<div class="hasLogin">
+							<img src="{if(!$member['litpic'])}{$common}user/images/login.png{else}{$member['litpic']}{/if}" width="22px" height="22px" class="avatar hasLogin-author" >{$member['username']} <a href="{fun U('login/loginout')}" title="Logout">退出 &raquo;</a>
+					</div>	
+						  
+			                                       
+            </div>
+        </div>    
+		<div class="new_comment"><textarea name="text" rows="3" class="textarea_box OwO-textarea" style="height: auto;" placeholder="说点什么把~" required></textarea></div> 
+		<div class="input_body bottom"> <span class="OwO"></span><input type="submit" value="提交评论" class="comment_submit_button c_button">  </div> 
+		</form>			 
+    </div>
+
+	
+	{/if}
+	
+	<div class="col-md-3 widget-area post_sider" id="secondary">
+        <section class="widget abautor g_m_i">
+              <h4 class="widget-title"><i class="icon iconfont icon-icon-test24"></i> <span>作者信息</span></h4>
+        <div class="widget-list"> 
+        <div class="av_v">  
+		<a class="av_v_img" href="/user/active/uname/{fun memberInfo($jz['member_id'],'username')}"><img class="widget-about-image" src="https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0" srcset="https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0" class="avatar avatar-140 photo" height="70" width="70">        </a>
+              
+        </div>
+        <div class="widget-about-intro">
+        <div class="name">苏七</div>		
+		<div class="widget-about-desc">文章 {fun M('article')->getCount(['isshow'=>1])} 篇 <i>|</i> 8.2w 阅读</div>	
+       
+		<div class="widget-article-newest"><span>最新文章</span></div>
+		{loop table="article"  isall="1" orderby="addtime desc" limit="5" as="v"}
+		<ul class="posts-widget"><li><div class="widget-posts-text"><a class="widget-posts-title" href="{$v['url']}" title="{$v['title']}"><i class="icon iconfont icon-icon-test29"></i> {$v['title']}</a><div class="widget-posts-meta"><i>{$v['hits']} 阅读</i></div></div></li>
+		
+	
+		{/loop}
+		
+        </div> 		
+        </div>
+    </section>
+	   <section class="widget g_m_i">
+<h4 class="widget-title"><i class="icon iconfont icon-paihangbang"></i> <span>推荐文章</span></h4>
+{loop table="article"  isall="1" istuijian="1" limit="5" as="v"}
+<div class="list-rounded my-n2">
+
+<div class="py-2"><div class="ricon_rank rank1">{$v_n}</div><div class="list-item list-overlay-content"><div class="media media-2x1"><a class="media-content" href="{$jz['url']}"  style="background-image:url({$v['litpic']});"><span class="overlay"></span></a></div><div class="list-content"><div class="list-body"><a href="{$jz['url']}" class="list-title h-2x">{$jz['title']}</a></div><div class="list-footer"><div class="text-muted text-xs">{$v['hits']} 阅读 ，<time class="d-inline-block">{fun date('m-d',$v['addtime'])}</time>
+
+</div></div></div></div></div>
+{/loop}
+
+</div>
+</section>
+   
+       
+<section class="widget abautor g_m_i">
+<h4 class="widget-title"><i class="icon iconfont icon-paihangbang"></i> <span>置顶文章</span></h4> 
+{loop table="article"  isall="1" istop="1" orderby="addtime desc" limit="5" as="v"}
+<div class="box-top"><a href="{$v['url']}">
+<div class="box-img" style="background-image:url({$v['litpic']});"></div>
+</a><div class="box-avatar"><div class="box-avatar-left author-infos" data-id="121">
+<img class="rounded-circle" src="{$tpl}style//picture/1eb7441695154cd68d5f831af1516ee8.gif" width="40px" height="40px">
+<div class="author-info-card"></div></div><div class="box-avatar-right"><span>
+<a href="{$v['url']}">{$v['title']}</a>
+</span></div></div></div><div class="widget-box-intro"><i class="icon iconfont icon-dianzan1">
+</i> {fun jz_zan($v['tid'],$v['id'])}赞，<i class="icon iconfont icon-remen"></i> 阅读：{$v['hits']}</div></section>
+
+  {/loop}
+
+  
+    <!--s--> 
+<section class="widget widget-hunter-topics g_m_i">
+	<h4 class="widget-title"><i class="icon iconfont icon-huatifuhao"></i> <span>标签TAG</span></h4>
+	<div class="items">	
+	{loop table="tags" isshow="1" limit="15" as="v"}
+    <div class="item "><div class="wall-item">
+	
+	<a href="{fun U('tags/index',['tagname'=>$v['keywords']])}" rel="tag"><h2> <i class="clr_orange">#</i> {$v['keywords']} </h2></a></div></div>
+		{/loop}
+</div>
+</section>
+      <!--s--> 
+     <section class="widget g_m_i">
+		<h4 class="widget-title"><i class="icon iconfont icon-taolunqu"></i> <span>热点文章</span></h4>
+        <ul class="posts-widget">
+           {loop table="article"  ishot="1" orderby="addtime desc" limit="6" as="v"}
+        <li><div class="widget-posts-text">
+		<a class="widget-posts-title" href="{$v['url']}" 
+		title="{$v['title']}"><i class="icon iconfont icon-icon-test29">
+		</i>{$v['title']}</a><div class="widget-posts-meta"><i>{$v['comment_num']} 评论</i></div></div></li><li>
+		
+		
+		
+		{/loop}
+         
+      </section></div></div>
+	</div>
+</main>
+</div><!-- .container -->
+<footer class="site-footer fsi">
+
+    <div class="site-info clearfix">
+        <div class="container">        
+		<!--左边-->
+       <div class="footer-left">
+            <div class="footer-l-top">
+			 
+						<!--<a href="/ylink.html">友情链接</a>-->
+						<!--<a href="/liuy.html">在线留言</a>-->
+				  <!--       <a href="/about.html">关于我们</a>-->
+						</div>
+						
+						
+<!-- .container -->
+<script type="text/javascript">
+function Share(pType){
+var pTitle = "{$jz['title']}"; //待分享的标题
+var pImage = "{$jz['litpic']}"; //待分享的图片
+var pContent = "{$jz['description']}"; //待分享的内容
+var pUrl = "{$jz['url']}"; //当前的url地址
+var pObj = jQuery("div[class='yogo_hc']").find("h4");
+if(pObj.length){ pTitle = pObj.text();}
+var pObj = jQuery("div[class='yogo_hcs']").find("em");
+if(pObj.length){ pContent = pObj.text();  }
+var pObj = jQuery("div[class='con_cons']").find("img");
+if(pObj.length){ pImage = jQuery("div[class='con_cons']").find("img",0).attr("src");}
+shareys(pType, pUrl, pTitle,pImage, pContent);
+}
+</script>
+<script type="text/javascript">
+$(".entry-content img").each(function(){
+var imgsec=$(this).attr("src");
+$(this).attr({"data-url":imgsec+"","src":"https://www.acgmkan.com/usr/themes/spimes/images/piex.gif"});
+$(this).addClass("scrollLoading"); 
+});
+</script>
+  <!--分享js--> 
+
+<script src="{$tpl}style//js/html2canvas.min.js"></script>
+<script src="{$tpl}style//js/common.js"></script>
+<script>
+	var poster_open = 'on';
+	var txt1 = '长按识别二维码查看';
+	var txt2 = '{$webconf['web_name']}';
+    var comiis_poster_start_wlat = 0;
+	var comiis_rlmenu =  1;
+	var comiis_nvscroll =  0;
+    var comiis_poster_time_baxt;
+    $(document).ready(function(){
+        $(document).on('click', '.comiis_poster_a', function(e) {
+            show_comiis_poster_ykzn();
+        });
+    });
+    function comiis_poster_rrwz(){
+        setTimeout(function(){
+            html2canvas(document.querySelector(".comiis_poster_box_img"), {scale:2,useCORS:true}).then(canvas => {
+                var img = canvas.toDataURL("image/jpeg", .9);
+                document.getElementById('comiis_poster_images').src = img;
+                $('.comiis_poster_load').hide();
+                $('.comiis_poster_imgshow').show();
+            });
+        }, 100);
+    }
+    function show_comiis_poster_ykzn(){
+        if(comiis_poster_start_wlat == 0){
+            comiis_poster_start_wlat = 1;
+            popup.open('<img src="https://www.acgmkan.com/usr/themes/spimes/poster/img/imageloading.gif" class="comiis_loading">');
+			var url = window.location.href.split('#')[0];
+			url = encodeURIComponent(url);
+            var html = '<div id="comiis_poster_box" class="comiis_poster_nchxd">\n' +
+                '<div class="comiis_poster_box">\n' +
+                '<div class="comiis_poster_okimg">\n' +
+                '<div style="padding:150px 0;" class="comiis_poster_load">\n' +
+                '<div class="loading_color">\n' +
+                '  <span class="loading_color1"></span>\n' +
+                '  <span class="loading_color2"></span>\n' +
+                '  <span class="loading_color3"></span>\n' +
+                '  <span class="loading_color4"></span>\n' +
+                '  <span class="loading_color5"></span>\n' +
+                '  <span class="loading_color6"></span>\n' +
+                '  <span class="loading_color7"></span>\n' +
+                '</div>\n' +
+                '<div class="comiis_poster_oktit">正在生成海报, 请稍候</div>\n' +
+                '</div>\n' +
+                '<div class="comiis_poster_imgshow" style="display:none">\n' +
+                '<img src="" class="vm" id="comiis_poster_images">\n' +
+                '<div class="comiis_poster_oktit">↑长按上图保存图片分享</div>\n' +
+                '</div>\n' +
+                '</div>\n' +
+                '<div class="comiis_poster_okclose"><a href="javascript:;" class="comiis_poster_closekey"><img src="http://www.ayiu.xyz/static/upload/image/20210413/1618324927649797.png" class="vm"></a></div>\n' +
+                '</div>\n' +
+                '<div class="comiis_poster_box_img">\n' +
+                '<div class="comiis_poster_img"><img src="{$jz['litpic']}" class="vm" id="comiis_poster_image"></div>\n' +
+                '<div class="comiis_poster_time">{fun date('Y-m-d',$v['addtime'])}</div>\n' +
+                '<div class="comiis_poster_tita">{$jz['title']}</div>\n' +
+                '<div class="comiis_poster_txta">{$jz['description']}</div><div class="comiis_poster_x guig"></div>\n' +
+                '<div class="comiis_poster_foot">\n' +
+                '<img src="https://api.pwmqr.com/qrcode/create/?url={$jz['url']}" class="kmewm fqpl vm">\n' +
+                '<img src="http://www.ayiu.xyz/static/upload/image/20210413/1618324765759386.png" class="kmzw vm"><span class="kmzwtip">'+txt1+'<br>'+txt2+'</span>\n' +
+                '</div>\n' +
+                '</div>\n' +
+                '</div>';
+            if(html.indexOf("comiis_poster") >= 0){
+                comiis_poster_time_baxt = setTimeout(function(){
+                    comiis_poster_rrwz();
+                }, 5000);
+                $('body').append(html);
+                $('#comiis_poster_image').on('load',function(){
+                    clearTimeout(comiis_poster_time_baxt);
+                    comiis_poster_rrwz();
+                });
+                popup.close();
+                setTimeout(function() {
+                    $('.comiis_poster_box').addClass("comiis_poster_box_show");
+                    $('.comiis_poster_closekey').off().on('click', function(e) {
+                        $('.comiis_poster_box').removeClass("comiis_poster_box_show").on('webkitTransitionEnd transitionend', function() {
+                            $('#comiis_poster_box').remove();
+                            comiis_poster_start_wlat = 0;
+                        });
+                        return false;
+                    });
+                }, 60);
+            }
+        }
+    }
+
+    var new_comiis_user_share, is_comiis_user_share = 0;
+    var as = navigator.appVersion.toLowerCase(), isqws = 0;
+    if (as.match(/MicroMessenger/i) == "micromessenger" || as.match(/qq\//i) == "qq/") {
+        isqws = 1;
+    }
+    if(isqws == 1){
+        if(typeof comiis_user_share === 'function'){
+            new_comiis_user_share = comiis_user_share;
+            is_comiis_user_share = 1;
+        }
+        var comiis_user_share = function(){
+            if(is_comiis_user_share == 1){
+                isusershare = 0;
+                new_comiis_user_share();
+                if(isusershare == 1){
+                    return false;
+                }
+            }
+            isusershare = 1;
+            show_comiis_poster_ykzn();
+            return false;
+        }
+    }
+</script>
+           <!-- 友情链接 -->               
+            <div class="footer-l-btm">
+            <p>{$webconf['web_name']}</p>
+			<p></p>
+						</div>
+                       <!-- 友情链接 end -->
+        </div>
+		{include="footer"}
+		 <script>
+  
+   
+   //收藏 
+	function collect(tid,id){
+		$.ajax({
+				 url:"{fun U('user/collectAction')}",//请求的url地址
+				 dataType:"json",//返回格式为json
+				 async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+				 data:{tid:tid,id:id,ajax:1},//参数值
+				 type:"POST",//请求方式
+				 beforeSend:function(){
+					//请求前的处理
+					},
+					 success:function(r){
+						if(r.code==0){
+							alert(r.msg);
+							window.location.reload();
+						}else{
+							alert(r.msg);
+						}
+							
+					},
+					 complete:function(){
+					//请求完成的处理
+					},
+					 error:function(){
+					//请求出错处理
+						alert('网络错误');
+					}
+
+						
+				
+			})
+	}
+	   
+   //点赞
+	function likes(tid,id){
+		$.ajax({
+				 url:"{fun U('user/likesAction')}",//请求的url地址
+				 dataType:"json",//返回格式为json
+				 async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+				 data:{tid:tid,id:id,ajax:1},//参数值
+				 type:"POST",//请求方式
+				 beforeSend:function(){
+					//请求前的处理
+					},
+					 success:function(r){
+						if(r.code==0){
+							alert(r.msg);
+							window.location.reload();
+						}else{
+							alert(r.msg);
+						}
+							
+					},
+					 complete:function(){
+					//请求完成的处理
+					},
+					 error:function(){
+					//请求出错处理
+						alert('网络错误');
+					}
+
+						
+				
+			})
+	}
+
+function likes(tid,id){
+$.ajax({
+ url:"{fun U('user/likesAction')}",//请求的url地址
+ dataType:"json",//返回格式为json
+ async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+ data:{tid:tid,id:id,ajax:1},//参数值
+ type:"POST",//请求方式
+ beforeSend:function(){
+//请求前的处理
+},
+ success:function(r){
+if(r.code==0){
+alert(r.msg);
+window.location.reload();
+}else{
+alert(r.msg);
+}
+},
+ complete:function(){
+//请求完成的处理
+},
+ error:function(){
+//请求出错处理
+alert('网络错误');
+}
+})
+}
+   </script>

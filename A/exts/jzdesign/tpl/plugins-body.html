@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{include="style"}
+
+</head>
+<body >
+  <div class="layui-rows" style="    margin-top: 10px;">
+    <form class="layui-form" action="">
+	<!--表单必须要携带ID-->
+	<input name="id" value="{$plugins['id']}" type="hidden">
+	<fieldset style="border: none;padding: 0;border-top: 1px solid #eee;">
+	 
+	  <div>
+		<blockquote>
+	插件无需配置，安装后刷新页面，左侧菜单会出现。
+		</blockquote>
+	  </div>
+	</fieldset>
+
+	</form>
+</div>
+
+    <script>
+        $(function  () {
+			
+            layui.use('form', function(){
+              var form = layui.form;
+             
+              //监听提交
+              form.on('submit(formDemo)', function(data){
+           
+				$.post("{fun U('setconf')}",data.field,function(res){
+				    //console.log(res);return false;
+					 var res = JSON.parse(res);
+					 if(res.code==1){
+						layer.msg(res.msg);
+					 }else{
+						layer.msg(res.msg, {icon: 6,time: 2000},function(){
+						window.location.reload();
+						});
+                     
+						
+						 
+					 }
+				})
+				
+                return false;
+              });
+            });
+        })
+
+        
+    </script>
+
+    
+ 
+</body>
+</html>

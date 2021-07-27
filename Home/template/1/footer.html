@@ -1,0 +1,234 @@
+		<!--右边-->
+        <div class="footer-right">
+		            
+        </div>
+        </div>
+    </div>    
+
+
+
+
+
+<script src="{$tpl}style//js/swiper.min.js"></script>
+<script src="{$tpl}style//js/getcon.js"></script> 
+<div class="mobile-overlay"></div>
+  
+<script src="{$tpl}style//js/script.js"></script>
+<script src="{$tpl}style//js/viewhistory.js"></script>
+<script src="{$tpl}style//js/instantpage-5.1.0.js" type="module" defer></script>
+<!--<script type="text/javascript">hljs.initHighlightingOnLoad();</script> -->
+<script>
+
+
+   
+<script>
+    var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    centeredSlides: true,
+    autoplay: 3500,
+    slidesPerView: 1,
+    paginationClickable: true,
+    autoplayDisableOnInteraction: false,
+    spaceBetween: 0,
+    loop: true
+});
+
+//点赞
+	function data-cid(tid,id){
+		$.ajax({
+				 url:"{fun U('user/likesAction')}",//请求的url地址
+				 dataType:"json",//返回格式为json
+				 async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+				 data:{tid:tid,id:id,ajax:1},//参数值
+				 type:"POST",//请求方式
+				 beforeSend:function(){
+					//请求前的处理
+					},
+					 success:function(r){
+						if(r.code==0){
+							alert(r.msg);
+							window.location.reload();
+						}else{
+							alert(r.msg);
+						}
+							
+					},
+					 complete:function(){
+					//请求完成的处理
+					},
+					 error:function(){
+					//请求出错处理
+						alert('网络错误');
+					}
+
+						
+				
+			})
+	}
+	function comment(zid,pid){
+	$("#zid").val(zid);
+	$("#pid").val(pid);
+	if(pid!=0){
+		//如果不是第一层评论，则@评论人昵称--特殊规则
+		//如果要更改样式，请对应修改Home/CommentController.php里面内容
+		var u = $('#comment_level_'+pid).html();
+		$("#commentx").html('[@'+u+']');
+	}
+	$("#commentx").focus();//跳到跳到评论框
+}
+function likes(tid,id){
+$.ajax({
+ url:"{fun U('user/likesAction')}",//请求的url地址
+ dataType:"json",//返回格式为json
+ async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+ data:{tid:tid,id:id,ajax:1},//参数值
+ type:"POST",//请求方式
+ beforeSend:function(){
+//请求前的处理
+},
+ success:function(r){
+if(r.code==0){
+alert(r.msg);
+window.location.reload();
+}else{
+alert(r.msg);
+}
+},
+ complete:function(){
+//请求完成的处理
+},
+ error:function(){
+//请求出错处理
+alert('网络错误');
+}
+})
+}
+</script>
+ <script>
+   function addcart(tid,id,num){
+		$.ajax({
+			 url:"{fun U('user/addcart')}",//请求的url地址
+			 dataType:"json",//返回格式为json
+			 async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+			 data:{tid:tid,id:id,num:num,ajax:1},//参数值
+			 type:"POST",//请求方式
+			 beforeSend:function(){
+				//请求前的处理
+				},
+				 success:function(r){
+					if(r.code==0){
+						window.location.href=r.url;
+					}else{
+						alert(r.msg);
+					}
+						
+				},
+				 complete:function(){
+				//请求完成的处理
+				},
+				 error:function(){
+				//请求出错处理
+					alert('网络错误');
+				}
+
+					
+			
+		})
+   }
+   
+   //收藏 
+	function collect(tid,id){
+		$.ajax({
+				 url:"{fun U('user/collectAction')}",//请求的url地址
+				 dataType:"json",//返回格式为json
+				 async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+				 data:{tid:tid,id:id,ajax:1},//参数值
+				 type:"POST",//请求方式
+				 beforeSend:function(){
+					//请求前的处理
+					},
+					 success:function(r){
+						if(r.code==0){
+							alert(r.msg);
+							window.location.reload();
+						}else{
+							alert(r.msg);
+						}
+							
+					},
+					 complete:function(){
+					//请求完成的处理
+					},
+					 error:function(){
+					//请求出错处理
+						alert('网络错误');
+					}
+
+						
+				
+			})
+	}
+	   
+   //点赞
+	function likes(tid,id){
+		$.ajax({
+				 url:"{fun U('user/likesAction')}",//请求的url地址
+				 dataType:"json",//返回格式为json
+				 async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+				 data:{tid:tid,id:id,ajax:1},//参数值
+				 type:"POST",//请求方式
+				 beforeSend:function(){
+					//请求前的处理
+					},
+					 success:function(r){
+						if(r.code==0){
+							alert(r.msg);
+							window.location.reload();
+						}else{
+							alert(r.msg);
+						}
+							
+					},
+					 complete:function(){
+					//请求完成的处理
+					},
+					 error:function(){
+					//请求出错处理
+						alert('网络错误');
+					}
+
+						
+				
+			})
+	}
+
+function likes(tid,id){
+$.ajax({
+ url:"{fun U('user/likesAction')}",//请求的url地址
+ dataType:"json",//返回格式为json
+ async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+ data:{tid:tid,id:id,ajax:1},//参数值
+ type:"POST",//请求方式
+ beforeSend:function(){
+//请求前的处理
+},
+ success:function(r){
+if(r.code==0){
+alert(r.msg);
+window.location.reload();
+}else{
+alert(r.msg);
+}
+},
+ complete:function(){
+//请求完成的处理
+},
+ error:function(){
+//请求出错处理
+alert('网络错误');
+}
+})
+}
+   </script>

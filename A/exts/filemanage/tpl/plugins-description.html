@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{include="style"}
+
+</head>
+<body >
+ <div class="layui-rows" style="    margin: 10px;">
+  <div class="layui-rows" style="    margin-top: 10px;">
+    <h1 style="text-align:center">在线模板编辑插件</h1>
+	<h5 style="text-align:center">发布时间：2020-06-05</h5>
+	<blockquote class="layui-elem-quote">1、可以实现在线编辑模板，不需要登录服务器！<br>
+	2、请确保模板目录的权限是777，当然该编辑器可以编辑其他文件，都需要777权限<br>
+	3、首次使用请到配置里面设置登录密码，设置密码后，提交，当前页面变成登录表单，再次输出密码，点击确认即可进入在线编辑页面！<br>
+	4、忘记密码怎么办？卸载该插件，并重新安装即可！安装完继续设置密码重复1-3步骤操作。
+	
+	</blockquote>
+	
+	
+  </div>
+  </div>
+
+  
+    <script>
+	layui.use('code', function(){ //加载code模块
+		  layui.code({'encode':true}); //引用code方法
+		});
+    </script>
+ 
+</body>
+</html>

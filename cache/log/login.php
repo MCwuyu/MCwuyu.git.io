@@ -1,0 +1,1 @@
+<?php die();?>[{"m":"Login","a":"index","t":"2021-05-17 15:34:22","ip":"182.118.237.13","data":{"id":"1","name":"admin","tel":"13600136000","gid":"1","email":"123456@qq.com","regtime":"1621106470","logintime":"1621106477","status":"1","isadmin":"1","ischeck":"0","classcontrol":"0","paction":",Fields,","tids":null,"isagree":"1","description":null,"group_name":"超级管理员"}}]

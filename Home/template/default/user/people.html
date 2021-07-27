@@ -1,0 +1,1211 @@
+
+
+<!DOCTYPE HTML>
+<html class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="applicable-device" content="pc,mobile">  
+  
+  
+<title>下饭漫的主页 - 漫漫看</title>
+<!-- 使用url函数转换相关路径 -->
+<link rel="stylesheet" href="{$common}user//css/bootstrap.min.css">
+<link rel="stylesheet" href="{$common}user//css/style.css">
+<link rel="stylesheet" href="{$common}user//css/iconfont.css" type="text/css" media="all">
+<script src="{$common}user//js/jquery.min.js"></script>
+<script type='text/javascript'>var globals = {"ajax_url":"https://www.acgmkan.com/about.html","web_url":"https://www.acgmkan.com/"};</script>
+<!--[if lt IE 9]>
+<script src="{$common}user//js/html5.min.js"></script>
+<script src="{$common}user//js/respond.min.js"></script>
+<![endif]-->  
+  
+<!-- 通过自有函数输出HTML头部信息 --> 
+<!-- 首页og -->
+<!-- 内容页og -->
+ 
+<meta name="description" content="下饭漫" />
+<meta name="keywords" content="下饭漫" />
+ 
+  
+<style type="text/css">body {font-family: webmo!important;}
+.image_title{display:none;}
+.entry-content p img {
+    margin: auto;
+    display: block;
+}
+.logoegg{width: 120px !important;}
+@media (max-width: 991px){
+.logoegg {  display: none !important;}}
+.sp-dark-mode .logoegg {  display: none;}
+
+
+
+</style>
+  
+</head>
+<body class=" " style="--theme: #2299DD;">  
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="https://browsehappy.com/">升级你的浏览器</a>.</div>
+<![endif]-->
+<div class="site-main spimes-container">
+<div class="top-bar">  
+<div class="container clearnav secnav">
+<!--移动端按钮-->
+<nav class="navbar navbar-inverse navbar-{$common}user/-top">
+<div class="container">
+<div class="navbar-header">
+<div class="m_nav-list" >
+<a href="javascript:;" data-toggle="offcanvas" class="lines js-m-navlist">
+<span class="line first-line"></span>
+<span class="line second-line"></span>
+<span class="line third-line"></span>
+</a>
+</div>
+</div>
+<div id="navbar" class="collapse navbar-collapse sidebar-offcanvas">
+<!--移动导航s-->
+<input class="wb-switch wb-yes" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">  
+<div class="mobile-sidebar-column">
+<ul class="mobile-sidebar-menu ultop">
+  
+<li class="menu-item"><a href="https://www.acgmkan.com/"><i class="icon iconfont icon-icon-test35"></i>首页</a></li>
+    <li class="menu-item">
+<a href="https://www.acgmkan.com/shipin/" title="动漫视频"><i class="icon iconfont icon-icon-test35"></i>动漫视频</a>
+</li>
+   <li class="menu-item">
+<a href="https://www.acgmkan.com/new/" title="动漫看点"><i class="icon iconfont icon-icon-test35"></i>动漫看点</a>
+</li>
+   <li class="menu-item">
+<a href="https://www.acgmkan.com/down/" title="动漫分享"><i class="icon iconfont icon-icon-test35"></i>动漫分享</a>
+</li>
+   <li class="menu-item">
+<a href="https://www.acgmkan.com/yulu/" title="有趣语录"><i class="icon iconfont icon-icon-test35"></i>有趣语录</a>
+</li>
+   <li class="menu-item">
+<a href="https://www.acgmkan.com/kan/" title="漫漫看"><i class="icon iconfont icon-icon-test35"></i>漫漫看</a>
+</li>
+<li class="menu-item"> 
+<a ><i class="icon iconfont icon-icon-test35"></i>其他<div class="dropdown-sub-menu"><span class="icon iconfont icon-icon-test37"></span></div></a>
+<ul class="sub-menu">
+   
+<li class="menu-item"><a href="https://www.acgmkan.com/ylink.html" title="友情链接">友情链接</a></li><li class="menu-item"><a href="https://www.acgmkan.com/liuy.html" title="在线留言">在线留言</a></li><li class="menu-item"><a href="https://www.acgmkan.com/sitelink.html" title="排行榜">排行榜</a></li><li class="menu-item"><a href="https://www.acgmkan.com/about.html" title="关于我们">关于我们</a></li></ul>  
+</li> 
+ 
+</ul>
+</div>
+<!--移动导航e-->
+</div><!--/.nav-collapse -->
+</div>
+</nav> 
+<div class="top-bar-left pull-left navlogo">				
+<a href="https://www.acgmkan.com/" class="logo box">
+<img src="{$common}user//picture/tlogo.png" class="logo-light" id="logo-light" alt="漫漫看" />
+<img src="{$common}user//picture/tlogo.png" class="logo-dark d-none" id="logo-dark" alt="漫漫看" />
+ <b class="shan"></b>
+</a>
+<img class="logoegg" src="{$common}user//picture/qr.gif">
+</div>
+<div class="search-btn">
+<a href="https://www.acgmkan.com/contribute.html" class="btn btn-blue btn-article"><i class="icon iconfont icon-icon-test10"></i> 投稿推荐</a>
+</div>
+<div class="search-warp clearfix">
+<form method="get" action="">
+<div class="search-area" >
+<input class="search-input" placeholder="搜索感兴趣的知识和文章" type="text" name="s" autocomplete="off" id="soblur">
+<!--弹出-->
+<ul class="dropdown-menu top_so">
+<li><a href="https://www.acgmkan.com/116.html"><span class="rank ran1">1</span> 教练我想要学攀岩，运动番《攀岩！- Sport C.... <i class="view">7.4k 阅读</i></a></li><li><a href="https://www.acgmkan.com/106.html"><span class="rank ran2">2</span> 《合金弹头》系列不为人知的故事，反派BOSS其实才.... <i class="view">6.9k 阅读</i></a></li><li><a href="https://www.acgmkan.com/17.html"><span class="rank ran3">3</span> 哆啦a梦六张图同人事件始末，视频观看 <i class="view">4.6k 阅读</i></a></li><li><a href="https://www.acgmkan.com/4.html"><span class="rank ran4">4</span> 当纯洁的妹妹得知哥哥的女友怀孕时～前方高能！ <i class="view">3.7k 阅读</i></a></li><!--历史-->
+<li><span class="vhiy"><i class="cv icon iconfont icon-icon_time"></i>观看历史记录：</span></li>
+<div id="jl_viewHistory" >
+</div>
+<!--历史-->
+<div class="s_tag">
+<div class="item "><a href="https://www.acgmkan.com/tag/%E9%9A%90%E7%A7%98%E7%9A%84%E8%A7%92%E8%90%BD/" rel="tag"><i>#</i> 隐秘的角落</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E6%82%9F%E7%A9%BA/" rel="tag"><i>#</i> 悟空</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97/" rel="tag"><i>#</i> 名侦探柯南</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E9%BE%99%E7%8F%A0/" rel="tag"><i>#</i> 龙珠</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E9%BE%99%E7%8F%A0%E8%B6%85/" rel="tag"><i>#</i> 龙珠超</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E9%AB%98%E6%9C%A8%E5%90%8C%E5%AD%A6/" rel="tag"><i>#</i> 高木同学</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%B0%8F%E5%93%80/" rel="tag"><i>#</i> 小哀</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%B0%8F%E5%85%B0/" rel="tag"><i>#</i> 小兰</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%93%86%E5%95%A6a%E6%A2%A6/" rel="tag"><i>#</i> 哆啦a梦</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%85%AD%E5%BC%A0%E5%9B%BE/" rel="tag"><i>#</i> 六张图</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E6%AF%92%E5%8F%AF%E4%B9%90%E6%9D%80%E4%BA%BA%E4%BA%8B%E4%BB%B6/" rel="tag"><i>#</i> 毒可乐杀人事件</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%BE%92%E7%84%B6%E5%96%9C%E6%AC%A2%E4%BD%A0/" rel="tag"><i>#</i> 徒然喜欢你</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C/" rel="tag"><i>#</i> 平凡的世界</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E6%97%A5%E6%9C%AC%E5%8A%A8%E6%BC%AB/" rel="tag"><i>#</i> 日本动漫</a></div>
+</div>                                
+</ul>
+<!--弹出-->
+</div>
+<button class="showhide-search search-form-input" type="submit"><i class="icon iconfont icon-sousuo"></i></button>
+</form>
+</div>
+<!--手机端s-->
+<div class="top-bar-right pull-right text-right mobs">
+<div class="top-admin">	
+<a href="javascript:;" id="soStats" class="sostats_click"><i id="soico" class="icon iconfont icon-sousuo"></i> 搜索</a>
+  <a href="https://www.acgmkan.com/denglu.html"><i class="/icon iconfont icon iconfont icon-icon-test24"></i> 登录</a>
+ 
+
+
+
+
+
+ <!--搜索框开始-->
+<div class="navbar-search socollapse sostats" id="navbar-search" style="">
+			<div class="container">
+				<form method="get" role="search" id="searchform" class="searchform shadow" action="">
+					<div class="input-group">
+						<input type="text" name="s" id="s" placeholder="请输入搜索关键词并按回车键…" class="form-control" required="" >
+					
+						<div class="input-group-append">
+							<button class="btn btn-nostyle" type="submit"><i class="icon iconfont icon-sousuo"></i></button>
+						</div>
+					</div>
+<!-- /input-group -->
+				</form>
+			</div>
+</div>
+<input class="wb-switch wb-no" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">   
+</div>
+</div>
+<!--手机端e-->			
+</div>  
+<!--s-->
+<div class="new_header container clearnav">  
+<div class="top-bar-left pull-left navs">
+    
+ 
+    			  
+<nav class="top-bar-navigation">
+<ul class="top-bar-menu">
+<li class="menu-item"><a href="https://www.acgmkan.com/"><i class="icon iconfont icon-shouye1"></i> 首页</a></li>					
+<!--pc导航s-->              
+ 
+						<li class="drop-down">
+                            <a href="#"><i class="icon iconfont icon-huatifuhao"></i> 超话精选 <i class="icon iconfont icon-icon-test37"></i></a>
+                            <div class="aui-dow-box aui-dow-box-list">
+                                <div class="aui-down-menu clearfix">                      
+                                    <ul class="aui-down-menu-list">                                     
+                                    <li class="aui-down-menu-list-item aui-top-border">
+                                            <a href="https://www.acgmkan.com/55.html">
+                                                <p class="aui-down-menu-list-title">
+                                                    <i class="icon iconfont icon-huatifuhao"></i>
+                                                    全职高手
+                                                </p>
+                                                <p class="aui-down-menu-list-text">叶修挑战各路高手</p>
+                                            </a>
+                                        </li><li class="aui-down-menu-list-item aui-top-border">
+                                            <a href="https://www.acgmkan.com/55.html">
+                                                <p class="aui-down-menu-list-title">
+                                                    <i class="icon iconfont icon-huatifuhao"></i>
+                                                    全职高手
+                                                </p>
+                                                <p class="aui-down-menu-list-text">叶修挑战各路高手</p>
+                                            </a>
+                                        </li><li class="aui-down-menu-list-item aui-top-border">
+                                            <a href="https://www.acgmkan.com/55.html">
+                                                <p class="aui-down-menu-list-title">
+                                                    <i class="icon iconfont icon-huatifuhao"></i>
+                                                    全职高手
+                                                </p>
+                                                <p class="aui-down-menu-list-text">叶修挑战各路高手</p>
+                                            </a>
+                                        </li><li class="aui-down-menu-list-item aui-top-border">
+                                            <a href="https://www.acgmkan.com/55.html">
+                                                <p class="aui-down-menu-list-title">
+                                                    <i class="icon iconfont icon-huatifuhao"></i>
+                                                    全职高手
+                                                </p>
+                                                <p class="aui-down-menu-list-text">叶修挑战各路高手</p>
+                                            </a>
+                                        </li>                         
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+						                  
+<li class="nav-s"><a href="https://www.acgmkan.com/shipin/" title="动漫视频">动漫视频</a></li>
+                  
+<li class="nav-s"><a href="https://www.acgmkan.com/new/" title="动漫看点">动漫看点</a></li>
+                  
+<li class="nav-s"><a href="https://www.acgmkan.com/down/" title="动漫分享">动漫分享</a></li>
+                  
+<li class="nav-s"><a href="https://www.acgmkan.com/yulu/" title="有趣语录">有趣语录</a></li>
+                  
+<li class="nav-s"><a href="https://www.acgmkan.com/kan/" title="漫漫看">漫漫看</a></li>
+                  
+  
+<li class="drop-down"> <i class="msg_remind" style="display: inline;"></i>
+<a href="#"><i class="icon iconfont icon-gengduo list_i"></i></a>
+<ul class="aui-nav-dow">
+   
+<li><a href="https://www.acgmkan.com/ylink.html" title="友情链接">友情链接</a></li><li><a href="https://www.acgmkan.com/liuy.html" title="在线留言">在线留言</a></li><li><a href="https://www.acgmkan.com/sitelink.html" title="排行榜">排行榜</a></li><li><a href="https://www.acgmkan.com/about.html" title="关于我们">关于我们</a></li></ul>  
+</li>
+ 
+<!--pc导航e-->
+</ul>
+<div id="sidebar-toggle" class="sidebar-toggle">
+<span></span>
+</div>
+</nav>
+</div>
+<div class="top-bar-right pull-right text-right">
+<div class="top-admin">
+<!--站点统计开始-->              
+<a href="https://www.acgmkan.com/sitelink.html" class="stats_click"><i class="icon iconfont icon-ditu"></i> 排行榜</a>		
+  
+<a href="javascript:;" id="mStats" class="stats_click"><i class="icon iconfont icon-paihangbang"></i> 统计						<div class="stats">
+							<ul>
+														<li>建站日期：2017-05-20</li>
+																					<li>文章总数：55 篇</li>
+							<li>评论总数：52 条</li>
+							<li>分类总数：5 个</li>
+							<li>最后更新：3月27日</li>
+							</ul>
+						</div>	
+</a>
+  
+					<!--站点统计结束-->
+						<div class="login avt_tl">
+			            			                <i class="icon iconfont icon-zengjia"></i><span>登录			                
+			                <!--s-->
+			                <div class="header__dropdown"> 
+			
+<div class="login-div notlogin">
+<div class="info">
+<div class="info-thumb"> <i class="thumb" style="background-image:url({$common}user//images/wu-user.png);"></i> </div>
+<h2 class="user-name">您还未登录</h2>
+<h4 class="user-info">登录体验更多功能</h4>
+<a href="https://www.acgmkan.com/denglu.html" class="modal-open btn btn-orange info-btn"> 立即登录 </a>
+
+</div>
+
+</div>
+
+<style>
+.login-div {
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.login-div .info {
+   
+    position: relative;
+    padding: 10px 80px;
+}
+.login-div .info .info-thumb {
+    width: 50px;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 30px 0 #eee;
+    border-radius: 100%;
+}
+.login-div .info .info-thumb .thumb {
+    padding-top: 100%;
+    border-radius: 100%;
+    transition: none;
+}
+.login-div .info h2 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    line-height: 1.5;
+    height: 1.5em;
+    overflow: hidden;
+}
+.login-div .info h4 {
+    font-size: 12px;
+    color: #888;
+    font-weight: normal;
+    line-height: 1.5;
+    height: 1.5em;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+.login-div .info .info-btn {
+        position: absolute;
+    right: 20px;
+    top: 15px;
+    padding: 2px 10px;
+    z-index: 10;
+    font-size: 12px;
+}
+.login-div .info .info-btn:hover{ color:#fff; }
+</style>
+			
+</div>			                <!--e-->
+			                
+			                </span>
+			                
+			            			            </div>
+						<input class="wb-switch" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">                
+                        <!--夜间白天-->
+				</div>
+			</div>  
+</div>
+<!--e-->  
+	<div id="percentageCounter"></div>
+	</div><!-- .top-bar -->
+	<div class="container">
+	<main id="main" class="site-main">	
+
+
+<div class="row member">
+
+
+    <div class="member_i_side col-md-3 widget-area " id="secondary">
+
+         <section class="widget_img"><div class="adTags"><div class="adTag">广告</div> <a target="_blank" href=""> <img src="{$common}user//picture/top-banner-news-winter.jpg"> </a></div> </section>
+     
+    <section class="widget abautor">
+        <div class="box-img" style="background-image:url({$common}user//images/default_banner.c6e8da.jpg);"></div>
+        <div class="widget-list meb_autor_top"> 
+        <div class="meb_v">  
+		<img class="widget-about-image" src="{$common}user//picture/9dc3b406eb7c4d139e6f194de6ff4f1f.gif" srcset="https://q2.qlogo.cn/headimg_dl?dst_uin=872872015&spec=100" class="avatar avatar-140 photo" >        
+              
+        </div>
+        <div class="widget-about-intro">
+        <div class="name">下饭漫</div>		
+		<div class="widget-about-desc work">文章 47篇 <i></i> 访问 8.7w</div>	
+
+        </div>           
+        </div>
+        
+        <!--扩展资料-->
+        <ul class="user__list"> 
+        <li><span><i class="icon iconfont icon-icon-test24"></i> 会员类型:</span> <span>管理员</span></li> 
+        <li><span><i class="icon iconfont icon-rili"></i> 最近登录:</span> <span>5小时前</span></li>
+        </ul>
+        <!--扩展资料-->
+        
+    </section>
+    
+    <!--<section class="widget">
+    <div class="user-auth">
+     <i class="icon iconfont icon-qinghuiyuan"></i>  个人认证：创作者
+     </div>
+    </section>-->
+
+</div>
+    
+    
+	<div class="col-md-9 contpost user_center" id="content" >
+	    
+	    
+        <div class="adimgs adTags"><img src="{$common}user//picture/dkt-draw-xg-12173.jpg"></div>
+    	    
+	<div class="row auto_xin">
+	    
+	<div class="col-md-3 col-xs-6 auto_xin_list">
+	<div class="card bg-gradient-danger card-img-holder text-white">
+	  <div class="card-body">
+		<img src="{$common}user//picture/circle.svg" class="card-img-absolute" alt="circle-image">
+		<h4 class="font-weight-normal">文章总计<i class="icon iconfont icon-wenjuan"></i></h4>
+		<span>47 篇文章</span>     
+	  </div>
+	</div>
+    </div> 
+    
+    <div class="col-md-3 col-xs-6 auto_xin_list">
+	<div class="card bg-gradient-info card-img-holder text-white">
+	  <div class="card-body">
+		<img src="{$common}user//picture/circle.svg" class="card-img-absolute" alt="circle-image">
+		<h4 class="font-weight-normal">评论次数<i class="icon iconfont icon-pinglun"></i></h4>
+		<span>8 次评论</span>     
+	  </div>
+	</div>
+    </div>
+    
+    <div class="col-md-3 col-xs-6 auto_xin_list">
+	<div class="card bg-gradient-success card-img-holder text-white">
+	  <div class="card-body">
+		<img src="{$common}user//picture/circle.svg" class="card-img-absolute" alt="circle-image">
+		<h4 class="font-weight-normal">访问总计<i class="icon iconfont icon-icon-test"></i></h4>
+		<span>8.7w 阅读</span>     
+	  </div>
+	</div>
+    </div>
+    
+    <div class="col-md-3 col-xs-6 auto_xin_list">
+	<div class="card bg-gradient-warning card-img-holder text-white">
+	  <div class="card-body">
+		<img src="{$common}user//picture/circle.svg" class="card-img-absolute" alt="circle-image">
+		<h4 class="font-weight-normal">注册天数<i class="icon iconfont icon-icon-test24"></i></h4>
+		<span>232 天</span>     
+	  </div>
+	</div>
+    </div>
+	    
+	</div>
+
+    
+    <!--头部s-->
+    <div class="meb_top page_auto">
+    <header class="site-header"> <nav class="main-navigation"> 
+    <ul class="menu-nav-inline"> 
+    <li class="menu-item active"><p><i class="icon iconfont icon-paihangbang"></i> 我的文章</p></li> 
+    <li class="menu-item"><p><i class="icon iconfont icon-icon-test13"></i> 个人资料</p></li>
+    <li class="menu-item"><p><i class="icon iconfont icon-pinglun"></i> 我的评论</p></li>
+    <li class="menu-item"><p><i class="icon iconfont icon-tishi"></i> 申请认证</p></li> 
+    </ul> 
+    
+    <!--公告-->
+    <div class="primary-menu" >
+		<ul class="_container" id="gogo">
+		<li><a href="https://www.acgmkan.com/14.html"><i class="icon iconfont icon-shengyin"></i> 说不清是嫉妒还是羡慕，在哀心中小兰是什么样的形象?</a></li><li><a href="https://www.acgmkan.com/17.html"><i class="icon iconfont icon-shengyin"></i> 哆啦a梦六张图同人事件始末，视频观看</a></li><li><a href=""><i class="icon iconfont icon-shengyin"></i> </a></li><li><a href="https://www.acgmkan.com/4.html"><i class="icon iconfont icon-shengyin"></i> 当纯洁的妹妹得知哥哥的女友怀孕时～前方高能！</a></li>		
+</ul>
+		</div>
+    <!--公告-->
+    
+    
+     </nav> </header>
+    </div>
+    <script type="text/javascript">
+		$(".page_auto li").on("click",function(){
+			var i = $(this).index();//获取li的下标
+			$(".page_auto li").eq(i).addClass("active").siblings().removeClass("active");
+			$(".page_auto_con .meb_top").eq(i).addClass("active").siblings().removeClass("active");
+		});
+	</script>
+    <!--头部e-->
+    
+    <div class="page_auto_con">
+        
+      <!--box1-->
+    <div class="meb_top active">
+            <!--正式内容-->
+      
+                  
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="" href="https://www.acgmkan.com/358.html" title="《灌篮高手》安西教练为何认为樱木跟流川枫是超越谷泽的奇才？" style="background-image:url('')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/358.html">《灌篮高手》安西教练为何认为樱木跟流川枫是超越谷泽的奇才？</a></span></header> <div class="entry-summary ss"><p>安西教练是一个非常苛刻的人，大学时他的绰号是白发魔鬼，如今在湘北变成了白发佛，就是因为谷泽这个他给予厚望的球员没了。至始至终安西教练的心气都是很高的，他的...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2021-01-12</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 0 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  514 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 4  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 21                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/3933425612.png" href="https://www.acgmkan.com/355.html" title="假如你的女友像猫咪，可能没人会出门办公吧？上班和撸猫不耽误" style="background-image:url('https://www.acgmkan.com/usr/uploads/2021/01/3933425612.png')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/355.html">假如你的女友像猫咪，可能没人会出门办公吧？上班和撸猫不耽误</a></span></header> <div class="entry-summary ss"><p>猫咪的优点是可以学来的，但是学来的东西还是缺少了一些神韵，那就是没有猫咪的娇小，这倒是让人感到很为难，如果有一只像猫咪的女友，世界会变成怎样？在日本有一位...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2021-01-10</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 1 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  605 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 0  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 2                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/2311276024.png" href="https://www.acgmkan.com/330.html" title="青春与情怀终在舞台落幕！《灌篮高手》拍影版圆一个青春结局" style="background-image:url('https://www.acgmkan.com/usr/uploads/2021/01/2311276024.png')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/330.html">青春与情怀终在舞台落幕！《灌篮高手》拍影版圆一个青春结局</a></span></header> <div class="entry-summary ss"><p>当昨天下午得知井上雄彦将要用电影的形式来完结《灌篮高手》这部经典篮球动漫的时候，我的第一反应跟许多有“灌篮情怀”的人是一样的，期待但还是少了青春时看它时的...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2021-01-08</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 0 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  888 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 1  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 6                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/2785124917.png" href="https://www.acgmkan.com/316.html" title="虽然我和你女儿青梅竹马，但我喜欢的是你啊太太" style="background-image:url('https://www.acgmkan.com/usr/uploads/2021/01/2785124917.png')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/316.html">虽然我和你女儿青梅竹马，但我喜欢的是你啊太太</a></span></header> <div class="entry-summary ss"><p>最近日本轻小说作者：望公太的轻小说作品《不是喜欢我女儿，而是喜欢我？》公开了广告宣传PV，倒是让我想起之前看过这部作品的漫画版，这部作品创意选题方面挺有意...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2021-01-07</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 0 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  678 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 5  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 26                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/174005898.png" href="https://www.acgmkan.com/308.html" title="半妖的夜叉姬：弥勒珊瑚建供养塔，祭拜犬夜叉和日暮戈薇？" style="background-image:url('https://www.acgmkan.com/usr/uploads/2021/01/174005898.png')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/308.html">半妖的夜叉姬：弥勒珊瑚建供养塔，祭拜犬夜叉和日暮戈薇？</a></span></header> <div class="entry-summary ss"><p>　日本动漫《犬夜叉》续作《半妖的夜叉姬》动画剧情中，刹那、日暮永远成为主角，老一辈的人物突然集体消失，剧情上也没有任何交代，直接把观众的好奇心勾了起来，大...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2021-01-06</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 0 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  524 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 0  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 1                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/1591535187.png" href="https://www.acgmkan.com/289.html" title="皮卡丘版《黄金圣斗士》，沙加变小短腿，天蝎座宛如中二少年" style="background-image:url('https://www.acgmkan.com/usr/uploads/2021/01/1591535187.png')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/289.html">皮卡丘版《黄金圣斗士》，沙加变小短腿，天蝎座宛如中二少年</a></span></header> <div class="entry-summary ss"><p>相信很多朋友对《宠物小精灵》都不会陌生，是很多朋友的入坑作，也因为皮卡丘认识了那么多的小精灵，可以说是这只电耗子一直引导着我们在小精灵的世界中畅游，所以皮...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2021-01-04</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 0 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  882 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 4  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 21                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/3792096169.jpeg" href="https://www.acgmkan.com/269.html" title="客观评价艾欧里亚那恐怖逆天的超级魔鬼战斗力" style="background-image:url('https://www.acgmkan.com/usr/uploads/2021/01/3792096169.jpeg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/269.html">客观评价艾欧里亚那恐怖逆天的超级魔鬼战斗力</a></span></header> <div class="entry-summary ss"><p>客观评价艾欧里亚那恐怖逆天的超级魔鬼战斗力首先来看各方面对艾欧利亚的评价：　　原著：艾欧利亚是数一数二的黄金圣斗士　　卡西欧士：黄金圣斗士中的最强勇者，艾...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2021-01-04</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 0 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  383 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 0  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 1                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/342802920.jpg" href="https://www.acgmkan.com/220.html" title="浅析《冥王神话ND》黄金圣斗士最强蛇夫座的奥德修斯" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/12/342802920.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/220.html">浅析《冥王神话ND》黄金圣斗士最强蛇夫座的奥德修斯</a></span></header> <div class="entry-summary ss"><p>《圣斗士星矢》冥王篇中，童虎和史昂的对战让圣迷知道了上代黄金圣斗士的真正可怕之处，作为圣斗士中的佼佼者，黄金圣斗士拥有至高无上的殊荣和深不见底的实力，冥斗...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-12-30</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 1 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  841 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 3  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 17                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/4188517619.jpg" href="https://www.acgmkan.com/190.html" title="一口气看完龙珠魔人布欧篇，到底有多爽" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/12/4188517619.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/190.html">一口气看完龙珠魔人布欧篇，到底有多爽</a></span></header> <div class="entry-summary ss"><p>布欧篇对于龙珠系列一个的重要贡献就是创造了贝吉特这位逼王。贝吉特是一位反套路的角色，在龙珠之前似乎没有任何一部作品会出现一位实力完全碾压反派BOSS的角色...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-12-29</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 0 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  1.6k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 5  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 27                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/847077473.jpg" href="https://www.acgmkan.com/165.html" title="15分钟看完龙珠超力量大会篇视频观看" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/12/847077473.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/165.html">15分钟看完龙珠超力量大会篇视频观看</a></span></header> <div class="entry-summary ss"><p>龙珠超一力量大会是龙珠系列最好看的15分钟看完龙珠超力量大会篇视频观看最后的结局也是感人的，并没有给大家留下什么不好的印象。17号许愿让所有宇宙恢复原样，...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-12-21</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 1 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  1.6k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 19  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 98                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/3422731317.jpg" href="https://www.acgmkan.com/161.html" title="龙珠超：黑悟空阴谋，人类零计划！" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/12/3422731317.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/161.html">龙珠超：黑悟空阴谋，人类零计划！</a></span></header> <div class="entry-summary ss"><p>　　黑悟空其实是另一个时空第十宇宙界王神·扎马斯。另一个时空的实习界王神·扎马斯成功弑师，抢走“坡塔拉耳环”和“时光戒指”成为第十宇宙界王神，并用“超级龙...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-12-19</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 2 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  2.8k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 7  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 40                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/2953051127.jpg" href="https://www.acgmkan.com/157.html" title="看到睡着的妹子，男主突然有了一个大胆的想法！" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/12/2953051127.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/157.html">看到睡着的妹子，男主突然有了一个大胆的想法！</a></span></header> <div class="entry-summary ss"><p>看这旁边睡得跟死猪一样的女朋友。完全没那个氛围啊。我把她鼻子捏住了，兄弟们我做得对吗</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-12-17</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 2 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  1.4k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 6  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 34                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/1313604142.jpg" href="https://www.acgmkan.com/154.html" title="终于完整的把风云1-3部全都看完了~ 强行结尾的感觉。。" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/11/1313604142.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/154.html">终于完整的把风云1-3部全都看完了~ 强行结尾的感觉。。</a></span></header> <div class="entry-summary ss"><p>终于好不容易把风云1-3部全都看完了风云1（第一部）：其实风云1主要还是看电视剧，电影，综合起来剧情都了解差不多七七八八了，回头的时候还犹豫，剑圣的剑二十...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-11-24</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 2 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  1.7k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 6  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 34                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/1319749748.png" href="https://www.acgmkan.com/147.html" title="如何通过一张照片找到一个人的位置" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/11/1319749748.png')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/147.html">如何通过一张照片找到一个人的位置</a></span></header> <div class="entry-summary ss"><p>每天都要多知道一点点,如何通过一张照片找到一个人的位置？    </p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-11-21</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 2 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  1.5k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 3  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 19                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/860393068.jpg" href="https://www.acgmkan.com/141.html" title="推荐一些让人很惊艳的个性签名" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/11/860393068.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/141.html">推荐一些让人很惊艳的个性签名</a></span></header> <div class="entry-summary ss"><p>1.以梦为鹿，亡与桎梏。——《列子﹒周穆王》2.春观夜樱，夏望繁星，秋赏满月，冬会初雪。——比古清十郎《浪客剑心》3.星光满载，初心不改 。4.似水流年，...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-11-04</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 9 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  2.4k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 14  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 82                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/1866255490.png" href="https://www.acgmkan.com/139.html" title="敢偷亲我？番剧《总之就是非常可爱》" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/10/1866255490.png')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/139.html">敢偷亲我？番剧《总之就是非常可爱》</a></span></header> <div class="entry-summary ss"><p>番剧：总之就是非常可爱改编：德拉库莉雅结尾猫出自【宇崎学妹想要玩】里的屏幕前的你们</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-10-28</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 2 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  2.2k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 3  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 20                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/1173874796.jpg" href="https://www.acgmkan.com/136.html" title="看穿别人心理的31条小技巧" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/10/1173874796.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/136.html">看穿别人心理的31条小技巧</a></span></header> <div class="entry-summary ss"><p>1、1一个20多岁的人，如果还总在网上抱怨父母对自己的亏欠，把自己的问题怪罪给“原生家庭”，那说明这人本身就是一巨婴。这种人压根不会对自己的人生负责，只会...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-10-14</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 0 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  1.2k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 3  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 17                    
+                                         </p>
+                    </article>
+                    
+            
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="{$common}user//images/4140112328.jpg" href="https://www.acgmkan.com/134.html" title="这该死的甜美哦！【高木同学】Top20~11高甜混剪" style="background-image:url('https://www.acgmkan.com/usr/uploads/2020/10/4140112328.jpg')"></a></div> <header class="entry-header"><span class="entry-title"><a href="https://www.acgmkan.com/134.html">这该死的甜美哦！【高木同学】Top20~11高甜混剪</a></span></header> <div class="entry-summary ss"><p>这该死的甜美哦！【高木同学】Top20~11高甜混剪高木和西片隐藏着对彼此的感情，将“我喜欢你”这四个字隐藏在日常的小打小闹中。教室后面的两张小课桌，是他...</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> 2020-10-10</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> 1 条评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  2k 阅读
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-dianzan"></i> 6  赞
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-qinghuiyuan"></i> 积分 33                    
+                                         </p>
+                    </article>
+                    
+                  <ol class="page-navigator"><li class="current"><a href="https://www.acgmkan.com/author/1/1/">1</a></li><li><a href="https://www.acgmkan.com/author/1/2/">2</a></li><li><a href="https://www.acgmkan.com/author/1/3/">3</a></li><li class="next"><a href="https://www.acgmkan.com/author/1/2/">后一页 &raquo;</a></li></ol>      <!--正式内容end-->
+    </div>
+    <!--box1-->    
+    
+    <!--个人资料s-->
+    <div class="meb_top ">
+        
+            
+    <div class="col-lg-12 meb_cl"> <div class="form__group"> <label class="form__label">个人主页</label> <input type="text" class="form__input" value="www.acgmkan.com/author/1/" readonly  unselectable="on"> </div> </div>
+    
+     
+    
+    <div class="col-lg-6 meb_cl"> <div class="form__group"> <label class="form__label">创作者积分</label> <input type="text" class="form__input" value="1556" readonly  unselectable="on"> </div> </div>   
+    
+        
+    <div class="col-lg-6 meb_cl"> <div class="form__group"> <label class="form__label">会员积分</label> <input type="text" class="form__input" value="4" readonly  unselectable="on"> </div> </div>    
+        
+        <form action="https://www.acgmkan.com/action/users-profile?_=ac691bb119766897e32e3d5b6c84e3de" method="post" class="input-form form" name=forma enctype="application/x-www-form-urlencoded">
+
+    
+         
+    <div class="col-lg-6 meb_cl"> <div class="form__group"> <label class="form__label">昵称:</label> <input name="screenName"  type="text" class="form__input" value="下饭漫"  readonly  unselectable="on"> </div> </div>
+    
+    <div class="col-lg-6 meb_cl"> <div class="form__group"> <label class="form__label">邮箱:</label> 
+        <input name="mail" type="text" class="form__input" value="872****15@qq.com"  readonly  unselectable="on">     </div> </div>
+    
+        
+    </form>
+    
+        
+    
+    </div>
+    <!--个人资料e-->
+    
+   
+    
+    
+  
+    
+	<!--box2-->
+    <div class="meb_top">
+     
+
+
+
+<div class="base-alert"> <span class="base-alert-txt">积极对作品评论进行回复、点赞及置顶等管理操作，可以提升互动数，进而提升积分等级哦</span>
+</div>
+
+<ul class="list_auto_ping">
+
+<li>
+<div class="meta">
+<div class="meta-item">    
+<i class="icon iconfont icon-taolunqu"></i><a href="https://www.acgmkan.com/355.html#comment-55">假如你的女友像猫咪，可能没人会出门办公吧？上班和撸猫不耽误</a>
+</div>
+<span class="views">3月26日</span>
+</div>
+<p></p></li>
+
+<li>
+<div class="meta">
+<div class="meta-item">    
+<i class="icon iconfont icon-taolunqu"></i><a href="https://www.acgmkan.com/382.html#comment-54">以严苛的训练方法闻名，灌篮高手安西教练的过人之处？</a>
+</div>
+<span class="views">3月26日</span>
+</div>
+<p></p></li>
+
+<li>
+<div class="meta">
+<div class="meta-item">    
+<i class="icon iconfont icon-taolunqu"></i><a href="https://www.acgmkan.com/382.html#comment-53">以严苛的训练方法闻名，灌篮高手安西教练的过人之处？</a>
+</div>
+<span class="views">3月26日</span>
+</div>
+<p></p></li>
+
+<li>
+<div class="meta">
+<div class="meta-item">    
+<i class="icon iconfont icon-taolunqu"></i><a href="https://www.acgmkan.com/175.html#comment-45">那年被禁播的动漫还有人记得吗？其中一个宅男最爱！</a>
+</div>
+<span class="views">1月3日</span>
+</div>
+<p><img class="biaoqing" src="{$common}user//picture/e593a6e8b181_2x.png"></p></li>
+
+<li>
+<div class="meta">
+<div class="meta-item">    
+<i class="icon iconfont icon-taolunqu"></i><a href="https://www.acgmkan.com/141.html#comment-40">推荐一些让人很惊艳的个性签名</a>
+</div>
+<span class="views">2020年12月24日</span>
+</div>
+<p>12355789</p></li>
+
+<li>
+<div class="meta">
+<div class="meta-item">    
+<i class="icon iconfont icon-taolunqu"></i><a href="https://www.acgmkan.com/161.html#comment-39">龙珠超：黑悟空阴谋，人类零计划！</a>
+</div>
+<span class="views">2020年12月24日</span>
+</div>
+<p>变身后的黑悟空</p></li>
+
+<li>
+<div class="meta">
+<div class="meta-item">    
+<i class="icon iconfont icon-taolunqu"></i><a href="https://www.acgmkan.com/157.html#comment-38">看到睡着的妹子，男主突然有了一个大胆的想法！</a>
+</div>
+<span class="views">2020年12月24日</span>
+</div>
+<p><img class="biaoqing" src="{$common}user//picture/e59388e59388_2x.png"><img class="biaoqing" src="{$common}user//picture/e59388e59388_2x.png">积分测试</p></li>
+
+<li>
+<div class="meta">
+<div class="meta-item">    
+<i class="icon iconfont icon-taolunqu"></i><a href="https://www.acgmkan.com/165.html#comment-37">15分钟看完龙珠超力量大会篇视频观看</a>
+</div>
+<span class="views">2020年12月22日</span>
+</div>
+<p>17号在超里太强了</p></li>
+</ul>
+    </div>
+    <!--box2-->
+    
+    <!--box3-->
+    <div class="meb_top">
+   
+    <div class="apply_tip">
+    
+    <div class="apply_header">
+        <svg width="168" height="140" viewBox="0 0 168 140" xmlns:xlink="http://www.w3.org/1999/xlink" class="CreatorRecruitHeader-bgLeftImg" fill="currentColor"><defs><path id="id-231874171-a" d="M0 0h168v140H0z"></path><path id="id-231874171-c" d="M0 0h168v140H0z"></path></defs><g fill="none" fill-rule="evenodd"><mask id="id-231874171-b" fill="#fff"><use xlink:href="#id-231874171-a"></use></mask><path fill="#97D1FE" d="M150 36h15v15h-15z" mask="url(#id-231874171-b)" transform="rotate(-45 157.5 43.5)" fill-rule="nonzero"></path><mask id="id-231874171-d" fill="#fff"><use xlink:href="#id-231874171-c"></use></mask><g mask="url(#id-231874171-d)"><g transform="translate(-86 -105)"><circle cx="106.5" cy="106.5" r="106.5" stroke="#FFF" opacity=".197" stroke-width="20"></circle><rect width="15" height="15" x="97" y="200.828" fill="#F4C245" rx="7.5" transform="rotate(-45 104.5 208.328)" fill-rule="nonzero"></rect><circle cx="106.5" cy="106.5" r="64.5" stroke="#FFF" opacity=".197" stroke-width="16"></circle><circle cx="106.5" cy="106.5" r="28.5" stroke="#FFF" opacity=".197" stroke-width="12"></circle><circle cx="107" cy="107" r="7" fill="#D8D8D8" opacity=".197" fill-rule="nonzero"></circle></g></g></g></svg>
+    <div class="apply-title">好文推荐 创作者招募</div>    
+    </div>
+    
+    <div class="apply-section">
+        <div class="apply-section-des">
+            <div class="CreatorRecruitDesc-container">
+                <div class="CreatorRecruitTitle">什么是创作者？</div>
+                <div class="CreatorRecruitDesc-text">
+                    <p>自媒体创作平台致力于为创作者提供更优质的创作环境，帮助原创作者打造专属的个人品牌。</p>
+                    <p>为创作者和机构提供强大的运营管理、高清视频上传、多维度数据分析、内容生产等辅助工具、依托平台丰富的资源提供热点趋势,更好的服务每个创作者</p>
+                </div>
+            </div>
+            <div class="CreatorRecruitDesc-image"><img src="{$common}user//picture/chuangzuoz.png" alt=""></div>
+        </div>
+        <!--申请资格-->
+        <div class="CreatorRecruitApplyCondition" style="margin-top: -12px;">
+            <div class="CreatorRecruitTitle">申请条件</div>
+            <div class="CreatorRecruitApplyCondition-conditionList">
+            <div class="CreatorRecruitApplyCondition-conditionItem">
+            <span class="CreatorRecruitApplyCondition-conditionItemText">会员积分 ≥ 1000</span>
+            </div>
+            <div class="CreatorRecruitApplyCondition-conditionItem">
+            <span class="CreatorRecruitApplyCondition-conditionItemText">帐号注册时间 ≥ 90 天</span>
+            </div>
+            <div class="CreatorRecruitApplyCondition-conditionItem">
+            <span class="CreatorRecruitApplyCondition-conditionItemText">过去 90 天未有违反《社区管理规定》的行为</span>
+            </div>
+            <div class="CreatorRecruitApplyCondition-conditionItem">
+            <span class="CreatorRecruitApplyCondition-conditionItemText">仅限个人帐号申请</span>
+            </div>
+            </div>
+        </div>
+        <!--申请资格-->
+        <div class="CreatorRecruitApplyCondition-additionalIntro"><div class="CreatorRecruitApplyCondition-additionalIntroTitle">补充说明</div><div class="CreatorRecruitApplyCondition-additionalIntroListItem">除以上申请条件，系统还会对帐号使用行为及内容进行审核，满足如下要求，方可通过系统审核：</div>
+        <div class="CreatorRecruitApplyCondition-additionalIntroListItem">1、帐号发布的内容符合原创要求；</div>
+        <div class="CreatorRecruitApplyCondition-additionalIntroListItem">2、帐号使用行为无异常。</div>
+        </div>
+        
+         
+        <button class="form__btn"  onclick="javascrtpt:window.location.href='https://www.acgmkan.com/liuy.html'"  disabled='disabled' ><span>申请</span></button>
+    
+    </div>
+    
+</div>
+
+<style>
+.apply_header {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background-color: #1f44f4;
+}
+.apply-title {
+        padding: 80px 0 0 40px;
+    line-height: 37px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+}
+.apply-section{
+position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 110px;
+    margin: -50px 0 0 16px;
+    padding: 0 24px 48px;
+    border-radius: 2px 0 0 0;
+    background-color: #fff;
+}
+.apply-section-des{
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.CreatorRecruitHeader-bgLeftImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.CreatorRecruitTitle {
+    line-height: 25px;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #121212;
+}
+.CreatorRecruitDesc-text {
+    line-height: 24px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #444;
+}
+@media screen and (max-width: 767px){
+    .CreatorRecruitDesc-image {
+   display: none;
+}
+}
+
+.CreatorRecruitApplyCondition-conditionList {
+    margin-top: 16px;
+}
+.CreatorRecruitApplyCondition-conditionItem {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 16px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.CreatorRecruitApplyCondition-additionalIntro:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+}
+.CreatorRecruitApplyCondition-additionalIntro {
+    position: relative;
+    padding: 14px 0 16px;
+}
+
+.CreatorRecruitApplyCondition-additionalIntroTitle {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 6px;
+}
+.CreatorRecruitApplyCondition-additionalIntroListItem {
+    font-size: 13px;
+    line-height: 22px;
+    color: #999;
+}
+</style>    </div>
+    <!--box3-->
+    
+
+	    
+	</div>    
+	    
+	  
+	    
+	    
+	
+    </div>
+	
+</div>
+</main>
+</div><!-- .container -->
+<footer class="site-footer fsi">
+
+    <div class="site-info clearfix">
+        <div class="container">        
+		<!--左边-->
+       <div class="footer-left">
+            <div class="footer-l-top">
+			 
+						<a href="https://www.acgmkan.com/ylink.html">友情链接</a>
+						<a href="https://www.acgmkan.com/liuy.html">在线留言</a>
+						<a href="https://www.acgmkan.com/sitelink.html">排行榜</a>
+						<a href="https://www.acgmkan.com/about.html">关于我们</a>
+						</div>
+           <!-- 友情链接 -->               
+            <div class="footer-l-btm">
+            <p>ACG动漫、韩漫、日漫PDF漫画下载 页面执行：544 ms</p>
+			<p></p>
+						</div>
+                       <!-- 友情链接 end -->
+        </div>
+		<!--右边-->
+        <div class="footer-right">
+		            
+        </div>
+        </div>
+    </div>    
+</footer>
+<a href="#" id="scroll-to-top"><span class="text-lg icon iconfont icon-icon-test26"></span></a>
+</div>
+<script src="{$common}user//js/jquery.pjax.js"></script>
+<nav class="navigation-tab">
+<div class="navigation-tab-item"><a data-pjax href="https://www.acgmkan.com"><span class="navigation-tab__icon"><i class="icon iconfont  icon-shouye"></i></span></a></div><div class="navigation-tab-item"><a data-pjax href="https://www.acgmkan.com"><span class="navigation-tab__icon"><i class="icon iconfont  icon iconfont icon-icon-test24"></i></span></a></div><div class="navigation-tab-item"><a data-pjax href="https://www.acgmkan.com"><span class="navigation-tab__icon"><i class="icon iconfont  icon iconfont icon-paihangbang"></i></span></a></div><div class="navigation-tab-item"><a data-pjax href="https://www.acgmkan.com"><span class="navigation-tab__icon"><i class="icon iconfont  icon iconfont iconfont icon-shoucang"></i></span></a></div>  
+<div class="navigation-tab-overlay"></div>
+</nav>
+
+<script>
+//底部移动端菜单pjax
+$(document).pjax('a[data-pjax]', {
+    container: '#main',
+    fragment: '#main',
+    timeout: 8000,
+	scrollTo: true
+}).on('pjax:send',
+function() {
+    NProgress.start();
+}).on('pjax:complete',
+function() {
+    NProgress.done();	
+})
+</script>
+
+
+<script src="{$common}user//js/swiper.min.js"></script>
+<script src="{$common}user//js/getcon.js"></script> 
+<div class="mobile-overlay"></div>
+  
+<script src="{$common}user//js/script.js"></script>
+<script src="{$common}user//js/viewhistory.js"></script>
+<script src="{$common}user//js/instantpage-5.1.0.js" type="module" defer></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script> 
+<script>
+$(function() {$(".scrollLoading").scrollLoading();});
+</script>
+<script>
+jl_viewHistory({
+    limit: 4,
+    storageKey: 'jl_viewHistory',
+    primaryKey: 'url',
+    addHistory: false,
+    titleSplit: '|'
+});
+</script>
+</body>
+</html><link rel="stylesheet" href="{$common}user//css/popup.css">
+<script>
+function p_del() {
+    var msg = "您真的确定要删除吗？";
+    if (confirm(msg)==true){
+        return true;
+    }else{
+        return false;
+    }
+}
+</script>
+
+<script src="{$common}user//js/jquery-ui.js"></script>
+<script src="{$common}user//js/typecho.js"></script>
+<script>
+    (function () {
+        $(document).ready(function() {
+            // 处理消息机制
+            (function () {
+                var prefix = '87ccd0233c0a0eb205527edeefed199f',
+                    cookies = {
+                        notice      :   $.cookie(prefix + '__typecho_notice'),
+                        noticeType  :   $.cookie(prefix + '__typecho_notice_type'),
+                        highlight   :   $.cookie(prefix + '__typecho_notice_highlight')
+                    },
+                    path = '/';
+
+                if (!!cookies.notice && 'success|notice|error'.indexOf(cookies.noticeType) >= 0) {
+                    var head = $('.typecho-head-nav'),
+                        p = $('<div class="message popup ' + cookies.noticeType + '">'
+                        + '<ul><li>' + $.parseJSON(cookies.notice).join('</li><li>') 
+                        + '</li></ul></div>'), offset = 0;
+
+                    if (head.length > 0) {
+                        p.insertAfter(head);
+                        offset = head.outerHeight();
+                    } else {
+                        p.prependTo(document.body);
+                    }
+
+                    function checkScroll () {
+                        if ($(window).scrollTop() >= offset) {
+                            p.css({
+                                'position'  :   'fixed',
+                                'top'       :   0
+                            });
+                        } else {
+                            p.css({
+                                'position'  :   'absolute',
+                                'top'       :   offset
+                            });
+                        }
+                    }
+
+                    $(window).scroll(function () {
+                        checkScroll();
+                    });
+
+                    checkScroll();
+
+                    p.slideDown(function () {
+                        var t = $(this), color = '#C6D880';
+                        
+                        if (t.hasClass('error')) {
+                            color = '#FBC2C4';
+                        } else if (t.hasClass('notice')) {
+                            color = '#FFD324';
+                        }
+
+                        t.effect('highlight', {color : color})
+                            .delay(5000).fadeOut(function () {
+                            $(this).remove();
+                        });
+                    });
+
+                    
+                    $.cookie(prefix + '__typecho_notice', null, {path : path});
+                    $.cookie(prefix + '__typecho_notice_type', null, {path : path});
+                }
+
+                if (cookies.highlight) {
+                    $('#' + cookies.highlight).effect('highlight', 1000);
+                    $.cookie(prefix + '__typecho_notice_highlight', null, {path : path});
+                }
+            })();
+
+
+
+        });
+    })();
+</script>

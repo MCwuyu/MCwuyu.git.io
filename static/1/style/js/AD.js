@@ -1,0 +1,1 @@
+document.write('<a href="https://www.dpaoz.com/85" rel="nofollow" target="_blank"><img src="https://xiao.dpaoz.com/AD.jpg"></a>');

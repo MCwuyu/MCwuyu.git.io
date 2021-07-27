@@ -1,0 +1,278 @@
+{include="header"}
+  
+<title>{$webconf['web_name']}-{$webconf['web_keyword']}</title> 
+{include="js"}
+  
+{include="daohang"}
+<!--e-->  
+
+	<div id="percentageCounter"></div>
+	</div><!-- .top-bar -->
+	<div class="container">
+	<main id="main" class="site-main">	<div class="row">
+<div class="col-md-9 contpost" >
+		
+<div class="main-slider row">
+<div class="sp-slideshow">	
+<!-- 首页广告轮播 -->
+<div class="swiper-container">
+<div class="swiper-wrapper">
+
+{loop table="collect" orderby="orders desc" tid="1" isshow="1" as="v"}
+<div class="swiper-slide"><a class="block-fea" href="{$v['url']}" title="{$v['title']}" style="background-image: url({$v['litpic']});">
+<div class="entyr-icon"><i class="icon iconfont icon-shoucang"></i></div><header class="video-header"><span class="video-title">
+<span class="badge arc_v2">推荐</span>{$v['title']}</span></header></a></div>
+{/loop}
+<!-- Sw -->
+</div>
+<!-- 首页侧栏广告 -->
+<div class="swiper-pagination"></div>
+</div>			
+</div><!-- sp-slideshow -->
+<div class="small-slider">
+{loop table="collect" orderby="orders desc" tid="2" isshow="1" as="v"}
+<div class="small-slider-item"><a href="{$v['url']}"  style="background-image: url({$v['litpic']});" class="small-slider-img"><div class="title">
+
+<span class="badge arc_v2">推荐</span>{$v['title']}</div></a><div class="entyr-icon"><i class="icon iconfont icon-shoucang"></i></div></div>
+
+{/loop}
+<!-- s -->
+</div></div>
+<div class="part-mor contt top-news">
+<div class="section-cont">
+<div class="items">
+
+
+
+<div class="item"><div class="hunter-item">
+
+
+</a></div></div>
+</div>
+</div>
+</div>
+
+		<header class="site-header">
+        <nav class="main-navigation">
+		<ul class="menu-nav-inline">
+		<li class="menu-item active"> 最新文章 </a> </li>
+        
+		<div class="primary-menu" >
+		<ul class="_container" id="gogo">
+
+		</div>	        
+        </nav>
+	</header><!-- #masthead -->
+		
+<div class="row" id="content">
+
+
+
+
+<script>
+    window.onload = function () {
+        var dv = document.getElementById('projList'), ox;
+        //上一次的位置 scrollLeft
+        var last_left = 0;
+        dv.onmousemove = function (e) {
+            dv.onmousemove = mousemove;
+            dv.onmouseup = mouseup;
+            e = e || window.event;
+            //如果上次有记录
+            if(last_left > 0 ){
+                //就减掉上次的距离
+                ox = e.clientX-last_left;
+            }else{
+                ox = e.clientX- dv.scrollLeft;
+                ox = e.clientX;
+            }
+            dv.className = 'aui-slide-item-list';
+        };
+        function mousemove(e) {
+            e = e || window.event;
+            
+            dv.scrollLeft = e.clientX - ox;
+        }
+        function mouseup() {
+            dv.className = 'aui-slide-item-list';
+            dv.onmouseup = dv.onmousemove = null;
+            
+        }
+
+    }()
+</script>
+
+
+<!-- 置顶-->
+{loop table="article" tid="1" isall="1" istop="1" limit="2" as="v"}
+
+<article class="post-list contt blockimg " id="post_264">
+                <div class="entry-container"><span class="laid_title_l"></span>
+                    <div class="block-image feaimg">
+                    <a id="post_a_264" class="block-fea scrollLoading" style="background-image:url({$v['litpic']})" href="{$v['url']}" 
+					title="{$v['title']}" ><i class="mask"></i>
+                    <span class="vodlist_top"><em class="voddate voddate_year">{$classtypedata[$v['tid']]['classname']}</em></span>
+
+</a> <div class="entyr-icon"><i class="icon iconfont icon-tupian"></i></div>                    </div>
+                    <header class="entry-header"><span class="entry-title"><a href="{$v['url']}"><span class='badge arc_v6'>置顶</span>{$v['title']}</a></span></header>
+                    <div class="entry-summary ss"><p>{$v['description']}</p></div>
+                    <div class="entry-meta">
+
+{if($v['member_id'])}
+ <a href="user/active/uname/{fun memberInfo($v['member_id'],'username')}">
+
+ <img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar avatar-140 photo" height="25" width="25">{fun memberInfo($v['member_id'],'username')}</a>
+{else}
+
+
+ <img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar avatar-140 photo" height="25" width="25">苏七</a>
+{/if}
+<span class="separator">/</span><a href="{$v['url']}">{$classtypedata[$v['tid']]['classname']}</a><span class="separator">/</span><time datetime="{fun date('Y-m-d',$v['addtime'])}">{fun date('Y-m-d H:i:s',$v['addtime'])}</time>
+                        <span class="separator">/</span>
+                        {$v['hits']}阅读</div> </div> </article> 
+
+{/loop}
+
+
+
+<!-- 热文-->
+{loop table="article" tid="1" isall="1" ishot="1" limit="2" as="v"}
+
+<article class="post-list contt blockimg " id="post_264">
+                <div class="entry-container"><span class="laid_title_l"></span>
+                    <div class="block-image feaimg">
+                    <a id="post_a_264" class="block-fea scrollLoading" style="background-image:url({$v['litpic']})" href="{$v['url']}" 
+					title="{$v['title']}" ><i class="mask"></i>
+                    <span class="vodlist_top"><em class="voddate voddate_year">{$classtypedata[$v['tid']]['classname']}</em></span>
+
+</a> <div class="entyr-icon"><i class="icon iconfont icon-tupian"></i></div>                    </div>
+                    <header class="entry-header"><span class="entry-title"><a href="{$v['url']}"><span class="badge arc_v4">热文</span>{$v['title']}</a></span></header>
+                    <div class="entry-summary ss"><p>{$v['description']}</p></div>
+                    <div class="entry-meta">
+
+{if($v['member_id'])}
+ <a href="user/active/uname/{fun memberInfo($v['member_id'],'username')}">
+
+ <img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar avatar-140 photo" height="25" width="25">{fun memberInfo($v['member_id'],'username')}</a>
+{else}
+
+
+ <img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar avatar-140 photo" height="25" width="25">苏七</a>
+{/if}
+<span class="separator">/</span><a href="{$v['url']}">{$classtypedata[$v['tid']]['classname']}</a><span class="separator">/</span><time datetime="{fun date('Y-m-d',$v['addtime'])}">{fun date('Y-m-d H:i:s',$v['addtime'])}</time>
+                        <span class="separator">/</span>
+                        {$v['hits']}阅读</div> </div> </article> 
+
+{/loop}
+
+
+
+
+<!-- 推荐-->
+{loop table="article" tid="1" isall="1" ishot="1" limit="2" as="v"}
+
+<article class="post-list contt blockimg " id="post_264">
+                <div class="entry-container"><span class="laid_title_l"></span>
+                    <div class="block-image feaimg">
+                    <a id="post_a_264" class="block-fea scrollLoading" style="background-image:url({$v['litpic']})" href="{$v['url']}" 
+					title="{$v['title']}" ><i class="mask"></i>
+                    <span class="vodlist_top"><em class="voddate voddate_year">{$classtypedata[$v['tid']]['classname']}</em></span>
+
+</a> <div class="entyr-icon"><i class="icon iconfont icon-tupian"></i></div>                    </div>
+                    <header class="entry-header"><span class="entry-title"><a href="{$v['url']}"><span class="badge arc_v2">推荐</span>{$v['title']}</a></span></header>
+                    <div class="entry-summary ss"><p>{$v['description']}</p></div>
+                    <div class="entry-meta">
+
+{if($v['member_id'])}
+ <a href="user/active/uname/{fun memberInfo($v['member_id'],'username')}">
+
+ <img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar avatar-140 photo" height="25" width="25">{fun memberInfo($v['member_id'],'username')}</a>
+{else}
+
+
+ <img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar avatar-140 photo" height="25" width="25">苏七</a>
+{/if}
+<span class="separator">/</span><a href="{$v['url']}">{$classtypedata[$v['tid']]['classname']}</a><span class="separator">/</span><time datetime="{fun date('Y-m-d',$v['addtime'])}">{fun date('Y-m-d H:i:s',$v['addtime'])}</time>
+                        <span class="separator">/</span>
+                        {$v['hits']}阅读</div> </div> </article> 
+
+{/loop}
+
+
+
+<!----最近更新----->
+
+
+{loop table="article" ispage="1"isall="1" orderby="orders desc,addtime desc" limit="5" as="v"}
+
+<article class="post-list contt blockimg " id="post_264">
+                <div class="entry-container"><span class="laid_title_l"></span>
+                    <div class="block-image feaimg">
+                    <a id="post_a_264" class="block-fea scrollLoading" style="background-image:url({$v['litpic']})" href="{$v['url']}" 
+					title="{$v['title']}" ><i class="mask"></i>
+                    <span class="vodlist_top"><em class="voddate voddate_year">{$classtypedata[$v['tid']]['classname']}</em></span>
+
+</a> <div class="entyr-icon"><i class="icon iconfont icon-tupian"></i></div>                    </div>
+                    <header class="entry-header"><span class="entry-title"><a href="{$v['url']}">{$v['title']}</a></span></header>
+                    <div class="entry-summary ss"><p>{$v['description']}</p></div>
+                    <div class="entry-meta">
+
+{if($v['member_id'])}
+ <a href="user/active/uname/{fun memberInfo($v['member_id'],'username')}">
+
+ <img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar avatar-140 photo" height="25" width="25">{fun memberInfo($v['member_id'],'username')}</a>
+{else}
+
+
+ <img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar avatar-140 photo" height="25" width="25">苏七</a>
+{/if}
+<span class="separator">/</span><a href="{$v['url']}">{$classtypedata[$v['tid']]['classname']}</a><span class="separator">/</span><time datetime="{fun date('Y-m-d',$v['addtime'])}">{fun date('Y-m-d H:i:s',$v['addtime'])}</time>
+                        <span class="separator">/</span>
+                        {$v['hits']}阅读</div> </div> </article> 
+
+{/loop}
+
+     
+
+
+
+   <!--分页-->  	
+</div>
+<ol class="page-navigator cck">
+{if($v_listpage['list'])}
+<li class="current">
+
+	
+	<li class=" {if($v_listpage['prev'])}css{/if}"><a href="{$v_listpage['prev']}" >上一页</a></li>
+	{foreach $v_listpage['list'] as $ss}
+	<li class="{if($ss['num']==$v_listpage['current_num'])}current {/if}"><a href="{$ss['url']}" >{$ss['num']}</a></li>
+	{/foreach}
+	<li class=" {if($v_listpage['next'])}css{/if}"><a href="{$v_listpage['next']}" >下一页</a></li>
+{/if} 
+</div> 
+   
+   
+   {include="index_right"}
+   
+       <div class="footer-left">
+            <div class="footer-l-top">
+			 
+						
+						<a href="/">在线留言</a>
+						<a href="/">排行榜</a>
+						<a href="/">关于我们</a>
+						</div>
+           <!-- 友情链接 -->               
+            <div class="footer-l-btm">
+            <p>{$webconf['web_name']}</p>
+			<p></p>
+			<p class="links">友情链接：
+			{loop table="links" isshow="1" orderby="orders desc" as="v"}
+			<a  target="_blank" href="{$v['url']}">{$v['title']}</a></p>			</div>
+                     {/loop}
+					 <!-- 友情链接 end -->
+        </div>
+		<!--右边-->
+        <div class="footer-right">
+		            
+        {include="footer"}

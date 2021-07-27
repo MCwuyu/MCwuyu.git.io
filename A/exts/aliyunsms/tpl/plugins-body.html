@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{include="style"}
+<style>
+.layui-form-label {
+    width: 230px;
+	}
+</style>
+</head>
+<body >
+  <div class="layui-rows" style="    margin: 84px;">
+    <form class="layui-form" action="">
+	<!--表单必须要携带ID-->
+	<input name="id" value="{$plugins['id']}" type="hidden">
+  <div class="layui-form-item">
+    <label class="layui-form-label">阿里云短信AccessKeyId：</label>
+    <div class="layui-input-inline">
+      <input type="text" name="AccessKeyId" required  value="{$config['AccessKeyId']}" lay-verify="required" placeholder="请输入AccessKeyId" autocomplete="off" class="layui-input">
+    </div>
+	<div class="layui-form-mid layui-word-aux">此处需要替换成开发者自己的AK(https://ak-console.aliyun.com/)</div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">阿里云短信accessKeySecret：</label>
+    <div class="layui-input-inline">
+      <input type="password" name="accessKeySecret"  value="{$config['accessKeySecret']}"  required lay-verify="required" placeholder="请输入accessKeySecret" autocomplete="off" class="layui-input">
+    </div>
+    <div class="layui-form-mid layui-word-aux"></div>
+  </div>
+ <div class="layui-form-item">
+    <label class="layui-form-label">阿里云短信签名：</label>
+    <div class="layui-input-inline">
+      <input type="text" name="SignName" required  value="{$config['SignName']}" lay-verify="required" placeholder="阿里云短信签名" autocomplete="off" class="layui-input">
+    </div>
+	<div class="layui-form-mid layui-word-aux">请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign</div>
+  </div>
+   <div class="layui-form-item">
+    <label class="layui-form-label">阿里云模板CODE：</label>
+    <div class="layui-input-inline">
+      <input type="text" name="templatecode" required  value="{$config['templatecode']}" lay-verify="required" placeholder="阿里云模板CODE" autocomplete="off" class="layui-input">
+    </div>
+	<div class="layui-form-mid layui-word-aux">请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/template</div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+</div>
+
+    <script>
+        $(function  () {
+			
+            layui.use('form', function(){
+              var form = layui.form;
+             
+              //监听提交
+              form.on('submit(formDemo)', function(data){
+           
+				$.post("{fun U('setconf')}",data.field,function(res){
+				    //console.log(res);return false;
+					 var res = JSON.parse(res);
+					 if(res.code==1){
+						layer.msg(res.msg);
+					 }else{
+						layer.msg(res.msg, {icon: 6,time: 2000},function(){
+						window.location.reload();
+						});
+                     
+						
+						 
+					 }
+				})
+				
+                return false;
+              });
+            });
+        })
+
+        
+    </script>
+
+    
+ 
+</body>
+</html>

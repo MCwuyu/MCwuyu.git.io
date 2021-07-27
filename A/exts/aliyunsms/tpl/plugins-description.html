@@ -1,0 +1,109 @@
+<!doctype html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	{include="style"}
+	<style>
+	blockquote.layui-elem-quote {
+		font-size: 14px;
+	}
+	
+	</style>
+
+</head>
+<body >
+ <div class="layui-rows" style="    margin: 10px;">
+    <h1 style="text-align:center">阿里云短信登录注册插件</h1>
+    <div class="layui-content" style="margin: 20px 40px;text-align: center;"><p style="font-size: 16px;">作者：留恋风2581047041@qq.com&nbsp;&nbsp;</span></p>
+    </div>
+    
+	<div style=" margin: 25px; font-size: 20px;">
+		<fieldset class="layui-elem-field" style="border: none;padding: 0;border-top: 1px solid #eee;">
+		  <legend>插件功能</legend>
+		  <div class="layui-field-box">
+		    <blockquote class="layui-elem-quote">
+			使用阿里云短信，实现发送手机号验证码，使用手机号注册，登录等操作。
+			</blockquote>
+		  </div>
+		</fieldset>
+		<fieldset class="layui-elem-field" style="border: none;padding: 0;border-top: 1px solid #eee;">
+		  <legend>如何使用？</legend>
+		  <div class="layui-field-box">
+		    <blockquote class="layui-elem-quote">
+			1. 需要加入相关代码实现手机号发送及验证<br>
+			2. 配置短信相关信息<br>
+			3. 每次发送短信验证码的时候必须先写图形验证码，这个是安全规范<br>
+			4. 下面是添加的前端代码：<br>
+			<pre class="layui-code">login.html页面
+			  <div class="form-control">
+				<label for="">手机验证码：</label>
+				<input type="text" value="" name="telyzm" id="telyzm" placeholder="请输入手机验证码">
+				<button type="button" onclick="sendmsg()">发送验证码</button>
+			  </div>
+			function sendmsg(){
+				var tel = $("#tel").val();
+				if(tel==''){
+					alert('手机号不能为空！');
+					return false;
+				}
+				var vercode = $("#yzm").val();
+				if(vercode==''){
+					alert('图形验证码不能为空！');
+					return false;
+				}
+				
+				$.post('/msg/index',{tel:tel,yzm:vercode,codename:'login_vercode'},function(r){
+					alert(r.msg);
+				
+				},'json');
+				
+
+			}
+			register.html页面
+			<div class="form-control">
+				<label for="">手机验证码：</label>
+				<input type="text" value="" name="telyzm" id="telyzm" placeholder="请输入手机验证码">
+				<button type="button" onclick="sendmsg()">发送验证码</button>
+			  </div>
+			function sendmsg(){
+					var tel = $("#tel").val();
+					if(tel==''){
+						alert('手机号不能为空！');
+						return false;
+					}
+					var vercode = $("#yzm").val();
+					if(vercode==''){
+						alert('图形验证码不能为空！');
+						return false;
+					}
+					
+					$.post('/msg/index',{tel:tel,yzm:vercode,codename:'reg_vercode'},function(r){
+						alert(r.msg);
+					
+					},'json');
+					
+
+				}
+			</pre>
+			5. 参考文件在aliyunsms/back/login.html和register.html <br>
+			6. 如果你实在无法接通，付费处理。
+			</blockquote>
+		  </div>
+		</fieldset>
+		
+		
+	</div>
+	
+	
+  </div>
+  </div>
+
+  
+    <script>
+	layui.use('code', function(){ //加载code模块
+		  layui.code({'encode':true}); //引用code方法
+		});
+    </script>
+ 
+</body>
+</html>

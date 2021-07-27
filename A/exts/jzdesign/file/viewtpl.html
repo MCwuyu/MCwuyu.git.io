@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+		<title></title>
+		<script src="{__Tpl_style__}/style/lib/layui/layui.js?v=123" charset="utf-8"></script>
+		<script src="{__Tpl_style__}/style/js/jquery.min.js"></script>
+	</head>
+	<body>
+
+<style>
+html,body,.xk_table_box,.layui-layout-admin{height: 100%;};
+</style>
+<iframe src="/" id='frame' class='flex' width="100%" style="height:100%;" frameborder="0"></iframe> 
+<script type="text/javascript">
+
+
+layui.use(['jquery','form','layer'], function(){
+var $ = layui.$, table = layui.table, form = layui.form, layer = layui.layer;
+var iframe = document.getElementById('frame');
+iframe.onload = function () {
+		frame =$("#frame").contents();
+		console.log(iframe);
+		frame.find("body").append("<style>.successbtn{background:#35be8c;color:#fff;border-radius:5px;box-shadow:0 2px 12px rgba(0,0,0,.2);padding:16px 30px;}.errorbtn{background:#35be8c;color:#fff;border-radius:5px;box-shadow:0 2px 12px rgba(0,0,0,.2);padding:16px 30px;}[jid]{position:relative;}.set-jz-mask{z-index:99;border:1px solid #f00;}.set-jz-btn{position:absolute;text-align:center;display:none;z-index: 9999999;top:0px;left:50%;margin-left:-20px;}.set_skin .layui-layer-title{background-color:#343a40!important;color:#fff;}.layui-btn{display:inline-block;height:38px;line-height:38px;padding:0 18px;background-color:#009688;color:#fff;white-space:nowrap;text-align:center;font-size:14px;border:none;border-radius:2px;cursor:pointer;}.layui-btn-normal{background-color:#1E9FFF;}.layui-btn-sm{height:30px;line-height:30px;padding:0 10px;font-size:12px;}</style>");
+		  frame.find("[jid]").each(function(){
+		    $(this).append('<div class="set-jz-btn"><button type="button" class="layui-btn layui-btn-normal set-jz-btn-set">设置</button></div>');
+		    });   
+		  frame.find('[jid]').on("mouseover mouseout",function(event){
+		    if(event.type == "mouseover"){
+			    $(this).find('.set-jz-btn').show();
+			    $(this).addClass('set-jz-mask');
+			 }else if(event.type == "mouseout"){
+			    $(this).find('.set-jz-btn').hide();
+			    $(this).removeClass('set-jz-mask');
+			 }
+		  });
+		  frame.find('[jid]').find('.set-jz-btn-set').on("click", function(){
+		    var jid=$(this).parents('[jid]').attr('jid');
+			layer.open({
+			  type: 2,
+			  title:'区域内容设置',
+			  closeBtn: 2,
+			  shadeClose: true,
+			  skin: 'set_skin',
+			  area: ['65%','80%'], //宽高
+			  content: "{fun U('Tempviewer/edittpl')}?viewtpl=1&id="+jid //调用对应表单
+			});
+
+		  }); 
+	};
+			   
+
+});
+  </script>
+
+	</body>
+</html>

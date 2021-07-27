@@ -1,0 +1,350 @@
+{include="header"}
+  
+<title>{$webconf['web_name']}</title> 
+{include="js"}
+  
+{include="daohang"}
+<!--e-->  
+	<div id="percentageCounter"></div>
+	</div><!-- .top-bar -->
+	<div class="container">
+	<main id="main" class="site-main">	
+
+
+<div class="row member">
+
+
+    <div class="member_i_side col-md-3 widget-area " id="secondary">
+
+         <section class="widget_img"><div class="adTags"><div class="adTag">广告</div> <a target="_blank" href=""> <img src="{$common}user//picture/top-banner-news-winter.jpg"> </a></div> </section>
+     
+    <section class="widget abautor">
+        <div class="box-img" style="background-image:url({$common}user//images/default_banner.c6e8da.jpg);"></div>
+        <div class="widget-list meb_autor_top"> 
+        <div class="meb_v">  
+		<img class="widget-about-image" src="{$common}user//picture/9dc3b406eb7c4d139e6f194de6ff4f1f.gif" srcset="{if(!$member['litpic'])}{$common}user/images/login.png{else}{$member['litpic']}{/if}" class="avatar avatar-140 photo" >        
+              
+        </div>
+        <div class="widget-about-intro">
+        <div class="name">{$user['username']}</div>		
+		<div class="widget-about-desc work">文章 {$article_num}篇 <i></i> 商品 {$product_num}</div>	
+
+        </div>           
+        </div>
+        
+        <!--扩展资料-->
+        <ul class="user__list"> 
+        <li><span><i class="icon iconfont icon-icon-test24"></i> 会员类型:</span> <span>{$member['name']}</span></li> 
+        <li><span><i class="icon iconfont icon-rili"></i> 性别:</span> <span>{if($member['sex']==1)}男{else if($member['sex']==2)}女{else}未知{/if}</span></li>
+        </ul>
+        <!--扩展资料-->
+        
+    </section>
+    
+    <!--<section class="widget">
+    <div class="user-auth">
+     <i class="icon iconfont icon-qinghuiyuan"></i>  个人认证：创作者
+     </div>
+    </section>-->
+
+</div>
+    
+    
+	<div class="col-md-9 contpost user_center" id="content" >
+	    
+	    
+        <div class="adimgs adTags"><img src="{$common}user//picture/dkt-draw-xg-12173.jpg"></div>
+    	    
+	<div class="row auto_xin">
+	    
+	<div class="col-md-3 col-xs-6 auto_xin_list">
+	<div class="card bg-gradient-danger card-img-holder text-white">
+	  <div class="card-body">
+		<img src="{$common}user//picture/circle.svg" class="card-img-absolute" alt="circle-image">
+		<h4 class="font-weight-normal">文章总计<i class="icon iconfont icon-wenjuan"></i></h4>
+		<span>{$article_num} 篇文章</span>     
+	  </div>
+	</div>
+    </div> 
+    
+    <div class="col-md-3 col-xs-6 auto_xin_list">
+	<div class="card bg-gradient-info card-img-holder text-white">
+	  <div class="card-body">
+		<img src="{$common}user//picture/circle.svg" class="card-img-absolute" alt="circle-image">
+		<h4 class="font-weight-normal">评论次数<i class="icon iconfont icon-pinglun"></i></h4>
+		<span>{$comment_num} 次评论</span>     
+	  </div>
+	</div>
+    </div>
+    
+    <div class="col-md-3 col-xs-6 auto_xin_list">
+	<div class="card bg-gradient-success card-img-holder text-white">
+	  <div class="card-body">
+		<img src="{$common}user//picture/circle.svg" class="card-img-absolute" alt="circle-image">
+		<h4 class="font-weight-normal">收藏总计<i class="icon iconfont icon-icon-test"></i></h4>
+		<span>{$collect_num} 他收藏的</span>     
+	  </div>
+	</div>
+    </div>
+    
+    <div class="col-md-3 col-xs-6 auto_xin_list">
+	<div class="card bg-gradient-warning card-img-holder text-white">
+	  <div class="card-body">
+		<img src="{$common}user//picture/circle.svg" class="card-img-absolute" alt="circle-image">
+		<h4 class="font-weight-normal">粉丝数量<i class="icon iconfont icon-icon-test24"></i></h4>
+		<span>{fun jz_fans($member['id'])} 人关注她</span>     
+	  </div>
+	</div>
+    </div>
+	    
+	</div>
+
+    
+    <!--头部s-->
+    <div class="meb_top page_auto">
+    <header class="site-header"> <nav class="main-navigation"> 
+    <ul class="menu-nav-inline"> 
+    <li class="menu-item active"><p><i class="icon iconfont icon-paihangbang"></i> 她的文章</p></li> 
+    <li class="menu-item"><p><i class="icon iconfont icon-icon-test13"></i> 她的个人资料</p></li>
+  
+
+    </ul> 
+    
+
+    
+    
+     </nav> </header>
+    </div>
+    <script type="text/javascript">
+		$(".page_auto li").on("click",function(){
+			var i = $(this).index();//获取li的下标
+			$(".page_auto li").eq(i).addClass("active").siblings().removeClass("active");
+			$(".page_auto_con .meb_top").eq(i).addClass("active").siblings().removeClass("active");
+		});
+	</script>
+    <!--头部e-->
+    
+    <div class="page_auto_con">
+        
+      <!--box1-->
+    <div class="meb_top active">
+            <!--正式内容-->
+      
+                 {foreach $lists as $v}
+		  
+		 
+      <article class="post-list contt blockimg "> <div class="entry-container"><span class="laid_title_l"></span> 
+	  <div class="block-image feaimg"> <a class="block-fea scrollLoading" data-url="" href="{$v['url']}" title="{$v['title']}" 
+	  style="background-image:url('')"></a></div> <header class="entry-header"><span class="entry-title"><a href="{$v['url']}">{$v['title']}</a>
+	  </span></header> <div class="entry-summary ss"><p>{$v['description']}</p></div></div>
+                    <div class="d_meta">
+                    <time datetime="'.$cont_time.'"><i class="icon iconfont icon-icon-test4"></i> {fun date('Y-m-d',$v['addtime'])}</time>
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-taolunqu"></i> {$v['comment_num']} 评论 
+                    <span class="separator">/</span>
+                    <i class="icon iconfont icon-icon-test"></i>  {$v['hits']} 阅读
+                   
+                                  
+                                         </p>
+                    </article>
+					
+                    
+            {/foreach}
+                    
+                     <ol class="page-navigator">
+	<li class="current">
+		{if($listpage['list'])}
+						<li class="page-item {if(!$listpage['prev'])}disabled{/if}"><a class="page-link" href="{$listpage['prev']}" aria-label="Previous"><span aria-hidden="true">上一页</span></a></li>
+						{foreach $listpage['list'] as $ss}
+						<li class="page-item {if($ss['num']==$listpage['current_num'])}current{/if}"><a href="{$ss['url']}" class="page-link">{$ss['num']}</a></li>
+						{/foreach}
+						<li class="page-item {if(!$listpage['next'])}disabled{/if}"><a class="page-link" href="{$listpage['next']}" aria-label="Next"><span aria-hidden="true">下一页</span></a></li>
+					{/if}
+					</ul>
+				</nav>
+    </div>
+    <!--box1-->    
+    
+    <!--个人资料s-->
+    <div class="meb_top ">
+        
+            
+    <div class="col-lg-12 meb_cl"> <div class="form__group"> <label class="form__label">她的主页</label>
+	<input type="text" class="form__input" value="{$webconf['domain']}/user/active/uname/{fun memberInfo($v['member_id'],'username')}" readonly  unselectable="on"> </div> </div>
+    
+     
+    
+
+
+    
+         
+    <div class="col-lg-6 meb_cl"> <div class="form__group"> <label class="form__label">昵称:</label> <input name="screenName"  type="text" class="form__input" value="{$user['username']}"  readonly  unselectable="on"> </div> </div>
+    
+    <div class="col-lg-6 meb_cl"> <div class="form__group"> <label class="form__label">邮箱:</label> 
+        <input name="mail" type="text" class="form__input" value="{$user['email']}"  readonly  unselectable="on">     </div> </div>
+		<div class="col-lg-6 meb_cl"> <div class="form__group"> <label class="form__label">她的积分:</label> 
+        <input name="mail" type="text" class="form__input" value="{$user['jifen']}"  readonly  unselectable="on">     </div> </div>
+    	<div class="col-lg-6 meb_cl"> <div class="form__group"> <label class="form__label">性别:</label> 
+        <input name="mail" type="text" class="form__input" value="{if($member['sex']==1)}男{else if($member['sex']==2)}女{else}未知{/if}"  readonly  unselectable="on">     </div> </div>
+        
+    </form>
+    
+        
+    
+    </div>
+    <!--个人资料e-->
+    
+   
+    
+    
+  
+    
+	<!--box2-->
+
+    </div>
+    <!--box2-->
+    
+    <!--box3-->
+  
+    
+    </div>
+    
+</div>
+
+<style>
+.apply_header {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background-color: #1f44f4;
+}
+.apply-title {
+        padding: 80px 0 0 40px;
+    line-height: 37px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+}
+.apply-section{
+position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 110px;
+    margin: -50px 0 0 16px;
+    padding: 0 24px 48px;
+    border-radius: 2px 0 0 0;
+    background-color: #fff;
+}
+.apply-section-des{
+    display: flex;
+    overflow: hidden;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.CreatorRecruitHeader-bgLeftImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.CreatorRecruitTitle {
+    line-height: 25px;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #121212;
+}
+.CreatorRecruitDesc-text {
+    line-height: 24px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #444;
+}
+@media screen and (max-width: 767px){
+    .CreatorRecruitDesc-image {
+   display: none;
+}
+}
+
+.CreatorRecruitApplyCondition-conditionList {
+    margin-top: 16px;
+}
+.CreatorRecruitApplyCondition-conditionItem {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 16px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.CreatorRecruitApplyCondition-additionalIntro:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+}
+.CreatorRecruitApplyCondition-additionalIntro {
+    position: relative;
+    padding: 14px 0 16px;
+}
+
+.CreatorRecruitApplyCondition-additionalIntroTitle {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 6px;
+}
+.CreatorRecruitApplyCondition-additionalIntroListItem {
+    font-size: 13px;
+    line-height: 22px;
+    color: #999;
+}
+</style>    </div>
+    <!--box3-->
+    
+
+	    
+	</div>    
+	    
+	  
+	    
+	    
+	
+    </div>
+	
+</div>
+</main>
+</div><!-- .container -->
+<footer class="site-footer fsi">
+
+    <div class="site-info clearfix">
+        <div class="container">        
+		<!--左边-->
+       <div class="footer-left">
+            <div class="footer-l-top">
+			 
+						<a href="/liuy.html">在线留言</a>
+						<a href="/sitelink.html">排行榜</a>
+						<a href="/about.html">关于我们</a>
+						</div>
+           <!-- 友情链接 -->               
+          <div class="footer-l-btm">
+            <p>{$webconf['web_name']}</p>
+           
+			<p></p>
+						</div>
+                       <!-- 友情链接 end -->
+        </div>
+{include="footer"}

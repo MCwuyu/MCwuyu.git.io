@@ -1,0 +1,127 @@
+  <!--s--> 
+    <!--首页右边广告--> 
+<div class="col-md-3 widget-area " id="secondary">
+        <section class="widget_img"><div class="adTags"><div class="adTag">广告</div>
+		{loop table="collect" orderby="orders desc" tid="4" isshow="1" as="v"}
+<a target="_blank" href=""> <img src="{$v['litpic']}"> </a></div>
+{/loop}
+</section>
+     <!--s--> 
+         <section class="widget hunter-widget-hunter-authors g_m_i">
+	<h4 class="widget-title"><i class="icon iconfont icon-wodeguanzhu"></i> <span>互动读者</span></h4>
+	<div class="hunter-cont">
+    <ul class="hunter-authors">
+      
+ {loop table="article"  isall="1" limit="5" as="v"}
+ {if($v['member_id'])}
+<li><div class="item"><div class="hunter-avatar">
+<a href="user/active/uname/{fun memberInfo($v['member_id'],'username')}"><div class="vatar">
+<img src="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}">
+<img class="va_v_honor" src="{$tpl}style//picture/authen.svg" title="认证用户"></div></a>
+</div><div class="item-main"><div class="work">苏七<h4>阅读 {$v['hits']}  <i></i>文章 {$article_num}篇</h4></div></div></li> 
+ {else}
+
+  
+  <li><div class="item"><div class="hunter-avatar">
+<a href="user/active/uname/{fun memberInfo($v['member_id'],'username')}"><div class="vatar">
+<img src="{if(!memberInfo($v['member_id'],'litpic'))}{$common}user/images/login.png{else}{fun memberInfo($v['member_id'],'litpic')}{/if}">
+<img class="va_v_honor" src="{$tpl}style//picture/authen.svg" title="认证用户"></div></a>
+</div><div class="item-main"><div class="work">管理员<h4>阅读 {$v['hits']}  <i></i>文章 {$article_num}篇</h4></div></div></li>
+{/if}	
+ 
+    {/loop}
+	
+	
+</ul>
+</div>
+</section>
+    <!--s--> 
+ 
+
+  
+  
+  
+   
+<section class="widget abautor g_m_i">
+<h4 class="widget-title"><i class="icon iconfont icon-paihangbang"></i> <span>置顶文章</span></h4> 
+{loop table="article"  isall="1" istop="1" orderby="addtime desc" limit="5" as="v"}
+<div class="box-top"><a href="{$v['url']}">
+<div class="box-img" style="background-image:url({$v['litpic']});"></div>
+</a><div class="box-avatar"><div class="box-avatar-left author-infos" data-id="121">
+<img class="rounded-circle" src="{$tpl}style//picture/1eb7441695154cd68d5f831af1516ee8.gif" width="40px" height="40px">
+<div class="author-info-card"></div></div><div class="box-avatar-right"><span>
+<a href="{$v['url']}">{$v['title']}</a>
+</span></div></div></div><div class="widget-box-intro"><i class="icon iconfont icon-dianzan1">
+</i> {fun jz_zan($v['tid'],$v['id'])}赞，<i class="icon iconfont icon-remen"></i> 阅读：{$v['hits']}</div></section>
+
+  {/loop}
+
+  
+    <!--s--> 
+<section class="widget widget-hunter-topics g_m_i">
+	<h4 class="widget-title"><i class="icon iconfont icon-huatifuhao"></i> <span>标签TAG</span></h4>
+	<div class="items">	
+	{loop table="tags" isshow="1" limit="15" as="v"}
+    <div class="item "><div class="wall-item">
+	
+	<a href="{fun U('tags/index',['tagname'=>$v['keywords']])}" rel="tag"><h2> <i class="clr_orange">#</i> {$v['keywords']} </h2></a></div></div>
+		{/loop}
+</div>
+</section>
+      <!--s--> 
+     <section class="widget g_m_i">
+		<h4 class="widget-title"><i class="icon iconfont icon-taolunqu"></i> <span>热点文章</span></h4>
+        <ul class="posts-widget">
+           {loop table="article"  ishot="1" orderby="addtime desc" limit="6" as="v"}
+        <li><div class="widget-posts-text">
+		<a class="widget-posts-title" href="{$v['url']}" 
+		title="{$v['title']}"><i class="icon iconfont icon-icon-test29">
+		</i>{$v['title']}</a><div class="widget-posts-meta"><i>{$v['comment_num']} 评论</i></div></div></li><li>
+		
+		
+		
+		{/loop}
+	        </ul>
+    </section>
+         
+   	<div class="widget-fixed">
+            
+
+</div>
+</main>
+</div><!-- .container -->
+<footer class="site-footer fsi">
+
+<div class="news-foot">
+<div class="container"><div class="part-news-foot">
+  <h2 class="section-title">
+  <i class="icon iconfont icon-icon-test25"></i>  动漫视频	  </h2>
+ <div class="section-content">    
+     {loop table="article" tid="2" isall="1" orderby="addtime desc" limit="5" as="v"}
+	 <div class="item">
+            
+                <div class="item-thumb">
+				<div class="feaimg"><a href="{$v['url']}" class="block-fea scrollLoading" style="background-image:url({$v['litpic']})" ></a>
+				<div class="entyr-icon ico-p"><i class="icon iconfont icon-icon-test15"></i></div></div></div>
+                <div class="item-main">
+                <div class="t_tl">
+				<a href="{$v['url']}">{$v['title']}</a></div>
+                
+               <div class="t_tls a_cl"> <span>
+			   <img src="{$v['litpic']}"
+			   srcset="{if(!memberInfo($v['member_id'],'litpic'))}https://q1.qlogo.cn/g?b=qq&nk={$webconf['web_qq']}&src_uin=www.jlwz.cn&s=0{else}{fun memberInfo($v['member_id'],'litpic')}{/if}" class="avatar photo" height="22" width="22">苏七</span>
+                 <span>{$v['hits']}阅读</span></div>
+                </div>
+
+              
+            </div>  
+	   {/loop}
+             </div>
+
+</div>
+</div>
+</div>
+
+    <div class="site-info clearfix">
+        <div class="container">        
+		<!--左边-->

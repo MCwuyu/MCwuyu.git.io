@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE HTML>
+<html class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="applicable-device" content="pc,mobile">  
+  
+  
+<title>页面没找到 - 漫漫看</title>
+<!-- 使用url函数转换相关路径 -->
+<link rel="stylesheet" href="https://www.acgmkan.com/usr/themes/spimes/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.acgmkan.com/usr/themes/spimes/style.css?ver=4.5">
+<link rel="stylesheet" href="https://www.acgmkan.com/usr/themes/spimes/css/iconfont.css?ver=4.5" type="text/css" media="all">
+<script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script type='text/javascript'>var globals = {"ajax_url":"https://www.acgmkan.com/about.html","web_url":"https://www.acgmkan.com/"};</script>
+<!--[if lt IE 9]>
+<script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="http://cdn.staticfile.org/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->  
+  
+<!-- 通过自有函数输出HTML头部信息 --> 
+<!-- 首页og -->
+<!-- 内容页og -->
+ 
+<meta name="description" content="ACG动漫、韩漫、日漫PDF漫画下载" />
+<meta name="keywords" content="ACG动漫,韩漫,日漫,漫画PDF,漫画下载" />
+ 
+  
+<style type="text/css">body {font-family: webmo!important;}
+.image_title{display:none;}
+.entry-content p img {
+    margin: auto;
+    display: block;
+}
+.logoegg{width: 120px !important;}
+@media (max-width: 991px){
+.logoegg {  display: none !important;}}
+.sp-dark-mode .logoegg {  display: none;}
+
+
+
+</style>
+  
+</head>
+<body class=" " style="--theme: #2299DD;">  
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="https://browsehappy.com/">升级你的浏览器</a>.</div>
+<![endif]-->
+<div class="site-main spimes-container">
+<div class="top-bar">  
+<div class="container clearnav secnav">
+<!--移动端按钮-->
+<nav class="navbar navbar-inverse navbar-static-top">
+<div class="container">
+<div class="navbar-header">
+<div class="m_nav-list" >
+<a href="javascript:;" data-toggle="offcanvas" class="lines js-m-navlist">
+<span class="line first-line"></span>
+<span class="line second-line"></span>
+<span class="line third-line"></span>
+</a>
+</div>
+</div>
+<div id="navbar" class="collapse navbar-collapse sidebar-offcanvas">
+<!--移动导航s-->
+<input class="wb-switch wb-yes" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">  
+<div class="mobile-sidebar-column">
+<ul class="mobile-sidebar-menu ultop">
+  
+<li class="menu-item"><a href="https://www.acgmkan.com/"><i class="icon iconfont icon-icon-test35"></i>首页</a></li>
+    <li class="menu-item">
+<a href="https://www.acgmkan.com/shipin/" title="动漫视频"><i class="icon iconfont icon-icon-test35"></i>动漫视频</a>
+</li>
+   <li class="menu-item">
+<a href="https://www.acgmkan.com/new/" title="动漫看点"><i class="icon iconfont icon-icon-test35"></i>动漫看点</a>
+</li>
+   <li class="menu-item">
+<a href="https://www.acgmkan.com/down/" title="动漫分享"><i class="icon iconfont icon-icon-test35"></i>动漫分享</a>
+</li>
+   <li class="menu-item">
+<a href="https://www.acgmkan.com/yulu/" title="有趣语录"><i class="icon iconfont icon-icon-test35"></i>有趣语录</a>
+</li>
+   <li class="menu-item">
+<a href="https://www.acgmkan.com/kan/" title="漫漫看"><i class="icon iconfont icon-icon-test35"></i>漫漫看</a>
+</li>
+<li class="menu-item"> 
+<a ><i class="icon iconfont icon-icon-test35"></i>其他<div class="dropdown-sub-menu"><span class="icon iconfont icon-icon-test37"></span></div></a>
+<ul class="sub-menu">
+   
+<li class="menu-item"><a href="https://www.acgmkan.com/ylink.html" title="友情链接">友情链接</a></li><li class="menu-item"><a href="https://www.acgmkan.com/liuy.html" title="在线留言">在线留言</a></li><li class="menu-item"><a href="https://www.acgmkan.com/sitelink.html" title="排行榜">排行榜</a></li><li class="menu-item"><a href="https://www.acgmkan.com/about.html" title="关于我们">关于我们</a></li></ul>  
+</li> 
+ 
+</ul>
+</div>
+<!--移动导航e-->
+</div><!--/.nav-collapse -->
+</div>
+</nav> 
+<div class="top-bar-left pull-left navlogo">				
+<a href="https://www.acgmkan.com/" class="logo box">
+<img src="https://i.0f1.cn/tlogo.png" class="logo-light" id="logo-light" alt="漫漫看" />
+<img src="https://i.0f1.cn/tlogo.png" class="logo-dark d-none" id="logo-dark" alt="漫漫看" />
+ <b class="shan"></b>
+</a>
+<img class="logoegg" src="https://i.0f1.cn/qr.gif">
+</div>
+<div class="search-btn">
+<a href="https://www.acgmkan.com/contribute.html" class="btn btn-blue btn-article"><i class="icon iconfont icon-icon-test10"></i> 投稿推荐</a>
+</div>
+<div class="search-warp clearfix">
+<form method="get" action="">
+<div class="search-area" >
+<input class="search-input" placeholder="搜索感兴趣的知识和文章" type="text" name="s" autocomplete="off" id="soblur">
+<!--弹出-->
+<ul class="dropdown-menu top_so">
+<li><a href="https://www.acgmkan.com/116.html"><span class="rank ran1">1</span> 教练我想要学攀岩，运动番《攀岩！- Sport C.... <i class="view">7.4k 阅读</i></a></li><li><a href="https://www.acgmkan.com/106.html"><span class="rank ran2">2</span> 《合金弹头》系列不为人知的故事，反派BOSS其实才.... <i class="view">6.9k 阅读</i></a></li><li><a href="https://www.acgmkan.com/17.html"><span class="rank ran3">3</span> 哆啦a梦六张图同人事件始末，视频观看 <i class="view">4.6k 阅读</i></a></li><li><a href="https://www.acgmkan.com/4.html"><span class="rank ran4">4</span> 当纯洁的妹妹得知哥哥的女友怀孕时～前方高能！ <i class="view">3.7k 阅读</i></a></li><!--历史-->
+<li><span class="vhiy"><i class="cv icon iconfont icon-icon_time"></i>观看历史记录：</span></li>
+<div id="jl_viewHistory" >
+</div>
+<!--历史-->
+<div class="s_tag">
+<div class="item "><a href="https://www.acgmkan.com/tag/%E9%9A%90%E7%A7%98%E7%9A%84%E8%A7%92%E8%90%BD/" rel="tag"><i>#</i> 隐秘的角落</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E6%82%9F%E7%A9%BA/" rel="tag"><i>#</i> 悟空</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97/" rel="tag"><i>#</i> 名侦探柯南</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E9%BE%99%E7%8F%A0/" rel="tag"><i>#</i> 龙珠</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E9%BE%99%E7%8F%A0%E8%B6%85/" rel="tag"><i>#</i> 龙珠超</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E9%AB%98%E6%9C%A8%E5%90%8C%E5%AD%A6/" rel="tag"><i>#</i> 高木同学</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%B0%8F%E5%93%80/" rel="tag"><i>#</i> 小哀</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%B0%8F%E5%85%B0/" rel="tag"><i>#</i> 小兰</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%93%86%E5%95%A6a%E6%A2%A6/" rel="tag"><i>#</i> 哆啦a梦</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%85%AD%E5%BC%A0%E5%9B%BE/" rel="tag"><i>#</i> 六张图</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E6%AF%92%E5%8F%AF%E4%B9%90%E6%9D%80%E4%BA%BA%E4%BA%8B%E4%BB%B6/" rel="tag"><i>#</i> 毒可乐杀人事件</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%BE%92%E7%84%B6%E5%96%9C%E6%AC%A2%E4%BD%A0/" rel="tag"><i>#</i> 徒然喜欢你</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C/" rel="tag"><i>#</i> 平凡的世界</a></div>
+<div class="item "><a href="https://www.acgmkan.com/tag/%E6%97%A5%E6%9C%AC%E5%8A%A8%E6%BC%AB/" rel="tag"><i>#</i> 日本动漫</a></div>
+</div>                                
+</ul>
+<!--弹出-->
+</div>
+<button class="showhide-search search-form-input" type="submit"><i class="icon iconfont icon-sousuo"></i></button>
+</form>
+</div>
+<!--手机端s-->
+<div class="top-bar-right pull-right text-right mobs">
+<div class="top-admin">	
+<a href="javascript:;" id="soStats" class="sostats_click"><i id="soico" class="icon iconfont icon-sousuo"></i> 搜索</a>
+  <a href="https://www.acgmkan.com/denglu.html"><i class="/icon iconfont icon iconfont icon-icon-test24"></i> 登录</a>
+ 
+
+
+
+
+
+ <!--搜索框开始-->
+<div class="navbar-search socollapse sostats" id="navbar-search" style="">
+			<div class="container">
+				<form method="get" role="search" id="searchform" class="searchform shadow" action="">
+					<div class="input-group">
+						<input type="text" name="s" id="s" placeholder="请输入搜索关键词并按回车键…" class="form-control" required="" >
+					
+						<div class="input-group-append">
+							<button class="btn btn-nostyle" type="submit"><i class="icon iconfont icon-sousuo"></i></button>
+						</div>
+					</div>
+<!-- /input-group -->
+				</form>
+			</div>
+</div>
+<input class="wb-switch wb-no" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">   
+</div>
+</div>
+<!--手机端e-->			
+</div>  
+<!--s-->
+<div class="new_header container clearnav">  
+<div class="top-bar-left pull-left navs">
+    
+ 
+    			  
+<nav class="top-bar-navigation">
+<ul class="top-bar-menu">
+<li class="menu-item"><a href="https://www.acgmkan.com/"><i class="icon iconfont icon-shouye1"></i> 首页</a></li>					
+<!--pc导航s-->              
+ 
+						<li class="drop-down">
+                            <a href="#"><i class="icon iconfont icon-huatifuhao"></i> 超话精选 <i class="icon iconfont icon-icon-test37"></i></a>
+                            <div class="aui-dow-box aui-dow-box-list">
+                                <div class="aui-down-menu clearfix">                      
+                                    <ul class="aui-down-menu-list">                                     
+                                    <li class="aui-down-menu-list-item aui-top-border">
+                                            <a href="https://www.acgmkan.com/55.html">
+                                                <p class="aui-down-menu-list-title">
+                                                    <i class="icon iconfont icon-huatifuhao"></i>
+                                                    全职高手
+                                                </p>
+                                                <p class="aui-down-menu-list-text">叶修挑战各路高手</p>
+                                            </a>
+                                        </li><li class="aui-down-menu-list-item aui-top-border">
+                                            <a href="https://www.acgmkan.com/55.html">
+                                                <p class="aui-down-menu-list-title">
+                                                    <i class="icon iconfont icon-huatifuhao"></i>
+                                                    全职高手
+                                                </p>
+                                                <p class="aui-down-menu-list-text">叶修挑战各路高手</p>
+                                            </a>
+                                        </li><li class="aui-down-menu-list-item aui-top-border">
+                                            <a href="https://www.acgmkan.com/55.html">
+                                                <p class="aui-down-menu-list-title">
+                                                    <i class="icon iconfont icon-huatifuhao"></i>
+                                                    全职高手
+                                                </p>
+                                                <p class="aui-down-menu-list-text">叶修挑战各路高手</p>
+                                            </a>
+                                        </li><li class="aui-down-menu-list-item aui-top-border">
+                                            <a href="https://www.acgmkan.com/55.html">
+                                                <p class="aui-down-menu-list-title">
+                                                    <i class="icon iconfont icon-huatifuhao"></i>
+                                                    全职高手
+                                                </p>
+                                                <p class="aui-down-menu-list-text">叶修挑战各路高手</p>
+                                            </a>
+                                        </li>                         
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+						                  
+<li class="nav-s"><a href="https://www.acgmkan.com/shipin/" title="动漫视频">动漫视频</a></li>
+                  
+<li class="nav-s"><a href="https://www.acgmkan.com/new/" title="动漫看点">动漫看点</a></li>
+                  
+<li class="nav-s"><a href="https://www.acgmkan.com/down/" title="动漫分享">动漫分享</a></li>
+                  
+<li class="nav-s"><a href="https://www.acgmkan.com/yulu/" title="有趣语录">有趣语录</a></li>
+                  
+<li class="nav-s"><a href="https://www.acgmkan.com/kan/" title="漫漫看">漫漫看</a></li>
+                  
+  
+<li class="drop-down"> <i class="msg_remind" style="display: inline;"></i>
+<a href="#"><i class="icon iconfont icon-gengduo list_i"></i></a>
+<ul class="aui-nav-dow">
+   
+<li><a href="https://www.acgmkan.com/ylink.html" title="友情链接">友情链接</a></li><li><a href="https://www.acgmkan.com/liuy.html" title="在线留言">在线留言</a></li><li><a href="https://www.acgmkan.com/sitelink.html" title="排行榜">排行榜</a></li><li><a href="https://www.acgmkan.com/about.html" title="关于我们">关于我们</a></li></ul>  
+</li>
+ 
+<!--pc导航e-->
+</ul>
+<div id="sidebar-toggle" class="sidebar-toggle">
+<span></span>
+</div>
+</nav>
+</div>
+<div class="top-bar-right pull-right text-right">
+<div class="top-admin">
+<!--站点统计开始-->              
+<a href="https://www.acgmkan.com/sitelink.html" class="stats_click"><i class="icon iconfont icon-ditu"></i> 排行榜</a>		
+  
+<a href="javascript:;" id="mStats" class="stats_click"><i class="icon iconfont icon-paihangbang"></i> 统计						<div class="stats">
+							<ul>
+														<li>建站日期：2017-05-20</li>
+																					<li>文章总数：55 篇</li>
+							<li>评论总数：52 条</li>
+							<li>分类总数：5 个</li>
+							<li>最后更新：3月27日</li>
+							</ul>
+						</div>	
+</a>
+  
+					<!--站点统计结束-->
+						<div class="login avt_tl">
+			            			                <i class="icon iconfont icon-zengjia"></i><span>登录			                
+			                <!--s-->
+			                <div class="header__dropdown"> 
+			
+<div class="login-div notlogin">
+<div class="info">
+<div class="info-thumb"> <i class="thumb" style="background-image:url(https://www.acgmkan.com/usr/themes/spimes/images/wu-user.png);"></i> </div>
+<h2 class="user-name">您还未登录</h2>
+<h4 class="user-info">登录体验更多功能</h4>
+<a href="https://www.acgmkan.com/denglu.html" class="modal-open btn btn-orange info-btn"> 立即登录 </a>
+
+</div>
+
+</div>
+
+<style>
+.login-div {
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.login-div .info {
+   
+    position: relative;
+    padding: 10px 80px;
+}
+.login-div .info .info-thumb {
+    width: 50px;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 30px 0 #eee;
+    border-radius: 100%;
+}
+.login-div .info .info-thumb .thumb {
+    padding-top: 100%;
+    border-radius: 100%;
+    transition: none;
+}
+.login-div .info h2 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    line-height: 1.5;
+    height: 1.5em;
+    overflow: hidden;
+}
+.login-div .info h4 {
+    font-size: 12px;
+    color: #888;
+    font-weight: normal;
+    line-height: 1.5;
+    height: 1.5em;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+.login-div .info .info-btn {
+        position: absolute;
+    right: 20px;
+    top: 15px;
+    padding: 2px 10px;
+    z-index: 10;
+    font-size: 12px;
+}
+.login-div .info .info-btn:hover{ color:#fff; }
+</style>
+			
+</div>			                <!--e-->
+			                
+			                </span>
+			                
+			            			            </div>
+						<input class="wb-switch" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">                
+                        <!--夜间白天-->
+				</div>
+			</div>  
+</div>
+<!--e-->  
+	<div id="percentageCounter"></div>
+	</div><!-- .top-bar -->
+	<div class="container">
+	<main id="main" class="site-main">		<div class="row">
+		<div class="col-md-12" id="content">
+			<div class="error-page">
+				<h1 class="not-found-title">404</h1>
+				<a class="not-found-back" href="https://www.acgmkan.com/">返回主页</a>
+			    <p>你想查看的页面已被转移或删除了, 要不搜索看看: </p>
+	        <form id="search" class="search-form" method="post" action="https://www.acgmkan.com/" role="search">
+	            <span class="search-box clearfix">
+	                <input type="text" id="input" class="input" name="s" required="true" placeholder="" maxlength="30" autocomplete="off">
+	                <button type="submit" class="search-submit"><i class="icon iconfont icon-sousuo"></i></button>
+	            </span>
+	        </form>
+			</div>
+            <ul id="tag_cloud" class="spimes-tags">
+                               <li><a href="https://www.acgmkan.com/tag/%E9%9A%90%E7%A7%98%E7%9A%84%E8%A7%92%E8%90%BD/" title="隐秘的角落">#隐秘的角落</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E6%82%9F%E7%A9%BA/" title="悟空">#悟空</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97/" title="名侦探柯南">#名侦探柯南</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E9%BE%99%E7%8F%A0/" title="龙珠">#龙珠</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E9%BE%99%E7%8F%A0%E8%B6%85/" title="龙珠超">#龙珠超</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E9%AB%98%E6%9C%A8%E5%90%8C%E5%AD%A6/" title="高木同学">#高木同学</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E5%B0%8F%E5%93%80/" title="小哀">#小哀</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E5%B0%8F%E5%85%B0/" title="小兰">#小兰</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E5%93%86%E5%95%A6a%E6%A2%A6/" title="哆啦a梦">#哆啦a梦</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E5%85%AD%E5%BC%A0%E5%9B%BE/" title="六张图">#六张图</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E6%AF%92%E5%8F%AF%E4%B9%90%E6%9D%80%E4%BA%BA%E4%BA%8B%E4%BB%B6/" title="毒可乐杀人事件">#毒可乐杀人事件</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E5%BE%92%E7%84%B6%E5%96%9C%E6%AC%A2%E4%BD%A0/" title="徒然喜欢你">#徒然喜欢你</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C/" title="平凡的世界">#平凡的世界</a></li>
+                                <li><a href="https://www.acgmkan.com/tag/%E6%97%A5%E6%9C%AC%E5%8A%A8%E6%BC%AB/" title="日本动漫">#日本动漫</a></li>
+                            </ul>
+		</div>
+	</div>
+</main>
+</div><!-- .container -->
+<footer class="site-footer fsi">
+
+    <div class="site-info clearfix">
+        <div class="container">        
+		<!--左边-->
+       <div class="footer-left">
+            <div class="footer-l-top">
+			 
+						<a href="https://www.acgmkan.com/ylink.html">友情链接</a>
+						<a href="https://www.acgmkan.com/liuy.html">在线留言</a>
+						<a href="https://www.acgmkan.com/sitelink.html">排行榜</a>
+						<a href="https://www.acgmkan.com/about.html">关于我们</a>
+						</div>
+           <!-- 友情链接 -->               
+            <div class="footer-l-btm">
+            <p>ACG动漫、韩漫、日漫PDF漫画下载 页面执行：166 ms</p>
+			<p></p>
+						</div>
+                       <!-- 友情链接 end -->
+        </div>
+		<!--右边-->
+        <div class="footer-right">
+		            
+        </div>
+        </div>
+    </div>    
+</footer>
+<a href="#" id="scroll-to-top"><span class="text-lg icon iconfont icon-icon-test26"></span></a>
+</div>
+<script src="https://www.acgmkan.com/usr/themes/spimes/js/jquery.pjax.js"></script>
+<nav class="navigation-tab">
+<div class="navigation-tab-item"><a data-pjax href="https://www.acgmkan.com"><span class="navigation-tab__icon"><i class="icon iconfont  icon-shouye"></i></span></a></div><div class="navigation-tab-item"><a data-pjax href="https://www.acgmkan.com"><span class="navigation-tab__icon"><i class="icon iconfont  icon iconfont icon-icon-test24"></i></span></a></div><div class="navigation-tab-item"><a data-pjax href="https://www.acgmkan.com"><span class="navigation-tab__icon"><i class="icon iconfont  icon iconfont icon-paihangbang"></i></span></a></div><div class="navigation-tab-item"><a data-pjax href="https://www.acgmkan.com"><span class="navigation-tab__icon"><i class="icon iconfont  icon iconfont iconfont icon-shoucang"></i></span></a></div>  
+<div class="navigation-tab-overlay"></div>
+</nav>
+
+<script>
+//底部移动端菜单pjax
+$(document).pjax('a[data-pjax]', {
+    container: '#main',
+    fragment: '#main',
+    timeout: 8000,
+	scrollTo: true
+}).on('pjax:send',
+function() {
+    NProgress.start();
+}).on('pjax:complete',
+function() {
+    NProgress.done();	
+})
+</script>
+
+
+<script src="https://www.acgmkan.com/usr/themes/spimes/js/swiper.min.js"></script>
+<script src="https://www.acgmkan.com/usr/themes/spimes/js/getcon.js?ver=4.5"></script> 
+<div class="mobile-overlay"></div>
+  
+<script src="https://www.acgmkan.com/usr/themes/spimes/js/script.js?ver=4.5"></script>
+<script src="https://www.acgmkan.com/usr/themes/spimes/js/viewhistory.js?ver=4.5"></script>
+<script src="https://www.acgmkan.com/usr/themes/spimes/js/instantpage-5.1.0.js" type="module" defer></script>
+<script type="text/javascript">hljs.initHighlightingOnLoad();</script> 
+<script>
+$(function() {$(".scrollLoading").scrollLoading();});
+</script>
+<script>
+jl_viewHistory({
+    limit: 4,
+    storageKey: 'jl_viewHistory',
+    primaryKey: 'url',
+    addHistory: false,
+    titleSplit: '|'
+});
+</script>
+</body>
+</html>

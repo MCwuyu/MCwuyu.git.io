@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    {include="style"}
+	{include="edit"}
+	
+	<style>
+	body .layui-layer-demo .layui-layer-title{background:#009688; color:#fff; border: none;}
+	body .layui-layer-demo .layui-layer-content{padding:20px;line-height: 24px;}
+
+	</style>
+	
+  </head>
+    <body>
+        <div class="x-nav">
+            <span class="layui-breadcrumb">
+            <a>首页</a>
+			<a>模板制作</a>
+			<a>区块管理</a>
+			<a><cite>新增区块</cite></a>
+            </span>
+            <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="iconfont" style="line-height:30px">&#xe6aa;</i></a>
+        </div>
+        <form class="layui-form layui-form-pane" >
+		<input name="ajax" type="hidden" value="1">
+        <div class="x-body">
+		<div class="layui-card">
+		  <div class="layui-card-body">
+					<div class="layui-field-box">
+						<label for="title" class="layui-form-label">
+							<span class="x-red">*</span>区块名称
+						</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-inline layui-input" name="name" value="" required autocomplete="off" placeholder="请填写区块名称"  >
+						</div>
+					</div>
+					<div class="layui-field-box">
+						<label for="fieldname" class="layui-form-label">
+							<span class="x-red">*</span>区块标识
+						</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-inline layui-input" name="fieldname" value="" required autocomplete="off" placeholder="请填写区块标识，必须唯一"  >
+						</div>
+					</div>
+				
+					<span id="ext_fields"></span>
+			
+				
+				
+					<fieldset class="layui-elem-field">
+					  <legend>自定义区域</legend>
+					  <div class="layui-field-box">
+							<label style="width:150px" class="layui-form-label">
+								<span class='x-red'></span>新增配置
+							</label>
+							<div class="layui-inline">
+								<input type="text" id="custom_title" name="custom_title" autocomplete="off" placeholder="请填写配置名(中文)"
+									class="layui-input">
+							</div>
+							<div class="layui-inline">
+								<input type="text" id="custom_fields" name="custom_fields" autocomplete="off" placeholder="配置标识(字母或数字)"
+								class="layui-input">
+							</div>
+							
+							<div class="layui-inline" >
+								<select class="layui-btn layui-btn-normal" lay-filter="custom" name="custom_type" id="custom_type" >
+									<option value="0">选择类型</option>
+									<option value="1">栏目选项</option>
+									<option value="2">数据绑定</option>
+									<option value="3">图片上传</option>
+									<option value="4">多图+文字</option>
+									<option value="5">单行文本</option>
+									<option value="6">多行文本</option>
+									<option value="7">内容文本</option>
+									<option value="8">单选选项</option>
+									<option value="9">多选选项</option>
+									<option value="10">文件上传</option>
+									<option value="11">多文件+文字</option>
+									
+								</select>
+								
+								
+							</div>
+							<div style="display:none;" class="layui-block selectblock" >
+							 <textarea id="custom_data" placeholder="请填写选项值，一行一个"  name="custom_data" class="layui-textarea"></textarea>
+							</div>
+							<div style="display:none;" class="layui-block selectblock" >
+							 <textarea id="custom_data_select" placeholder="请填写选中的值，一行一个，单选只能写一个"  name="custom_data_select" class="layui-textarea"></textarea>
+							</div>
+							<div class="layui-inline">
+							 <button lay-filter="add" lay-submit="" class="layui-btn"><i class="iconfont">&#xe6b9;</i>添加</button>
+								
+							</div>
+					  </div>
+					</fieldset>
+					
+				   
+					
+					
+					
+					<div class="layui-form-item">
+						<button class="layui-btn" lay-submit="" lay-filter="*">
+							保存
+						</button>
+					</div>
+				
+                    <div style="height:100px;"></div>
+               
+				</div>
+		<input id="uindex" type="hidden" value="0">
+			
+		</div>
+		
+		
+		
+        </div>
+        </form>
+     
+        <script>
+		{include="fields"}
+		function delblock(a){
+			$(a).parent().parent().parent().remove();
+		}
+		
+            layui.use(['element','layer','form','upload'], function(){
+                $ = layui.jquery;//jquery
+            var  lement = layui.element;//面包导航
+            var  layer = layui.layer;//弹出层
+            var  form = layui.form;
+             var upload = layui.upload;
+
+			  //图片上传接口
+              upload.render({
+                elem: '#field_value_upload'
+                ,url: "{fun U('Common/uploads')}" //上传接口
+                ,accept:"images"
+                ,acceptMime:"image/*"
+                ,data:{molds:"sysconfig"}
+                ,done: function(res){
+                  
+                    if(res.code==0){
+                         $("#field_value_img").attr("src",res.url);
+                         $("#field_value_url").val(res.url);
+                    }else{
+                         layer.alert(res.error, {icon: 5});
+                    }
+                }
+                ,error: function(){
+                  //请求异常回调
+                  layer.alert("上传异常！");
+                }
+              });
+             
+             //监听提交
+              form.on('submit(*)', function(data){
+				
+                $.post("{fun U('tempviewer/addtpl')}",data.field,function(r){
+                    var r = JSON.parse(r);
+					if(r.code==0){
+						layer.confirm(r.msg, {
+						  btn: ['返回','确定'] //按钮
+						}, function(){
+						   
+						   {if($webconf['admintpl']=='tpl')}
+						   window.location.href="{fun U('tempviewer/index')}";
+						  {else}
+						   parent.location.reload();
+						   parent.layer.close(index);
+						   
+						  {/if}
+						   
+						}, function(){
+						   window.location.href=r.url;
+						});
+					
+						
+					}else{
+						layer.alert(r.msg, {icon: 5});
+					}
+                
+                });
+                
+                return false;
+               
+                
+              });
+			  form.on('select(custom)', function(data){
+				var t = parseInt(data.value);
+				if(t==8 || t==9){
+					$('.selectblock').show();
+				}else{
+					$('.selectblock').hide();
+				}
+			  
+			  return false;
+			  })
+			   form.on('submit(add)', function(data){
+					var t = parseInt(data.field.custom_type);
+					if(t<=0){
+						return false;
+					}
+					var html = '';
+					var title = $("#custom_title").val();
+					var f = $("#custom_fields").val();
+					if(title=='' || f==''){
+						layer.alert('请填写字段和名称');return false;
+					}
+					
+					var vdata = $("#custom_data").val();
+					var sdata = $("#custom_data_select").val();
+					// 计算已有参数
+					var index = parseInt($("#uindex").val())+1;
+					
+					$("#uindex").val(index);
+					switch(t){
+						case 1:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="1">'+
+						'<div class="layui-field-box">'+
+							'<label for="title" class="layui-form-label">'+
+							'	字段'+
+							'</label>'+
+							'<div class="layui-input-inline">'+
+							'	<input type="text" class="layui-inline layui-input" readonly name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+							'</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'<label for="title" class="layui-form-label">'+
+						'		绑定栏目'+
+						'	</label>'+
+						'	<div class="layui-input-inline" >'+
+						'   <select name="field_value_'+f+'" >'+
+					   {foreach $classtypetree as $v}
+					   {if($admin['classcontrol']==0 || $admin['isadmin']==1 || strpos($tids,','.$v['id'].',')!==false)}
+					   '<option  value="{$v['id']}">{fun str_repeat('--', $v['level'])}{$v['classname']}</option>'+
+					   {/if}
+					   {/foreach}
+						'</select>'+
+						'	</div>'+
+						'	<div class="layui-input-inline">'+
+						'    <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+					    '</fieldset>';
+						break;
+						case 2:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="2">'+
+						'<div class="layui-field-box">'+
+							'<label for="title" class="layui-form-label">'+
+							'	字段'+
+							'</label>'+
+							'<div class="layui-input-inline">'+
+							'	<input type="text" class="layui-inline layui-input" readonly name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+							'</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'<label for="title" class="layui-form-label">'+
+						'		绑定'+
+						'	</label>'+
+						'	<div class="layui-input-inline" >'+
+						'   <select name="field_tid_'+f+'" >'+
+					   {foreach $classtypetree as $v}
+					   {if($admin['classcontrol']==0 || $admin['isadmin']==1 || strpos($tids,','.$v['id'].',')!==false)}
+					   '<option  value="{$v['id']}">{fun str_repeat('--', $v['level'])}{$v['classname']}</option>'+
+					   {/if}
+					   {/foreach}
+						'</select>'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		排序'+
+						'	</label>'+
+						'	<div class="layui-input-inline" >'+
+						'   <select name="field_orders_'+f+'" >'+
+					    '<option  value="1">时间倒叙</option>'+
+					    '<option  value="2">时间正序</option>'+
+					    '<option  value="3">按后台排序</option>'+
+					    '<option  value="4">按热点排序</option>'+
+					    '<option  value="5">按ID正序</option>'+
+					    '<option  value="6">按ID倒叙</option>'+
+						'</select>'+
+						'	</div>'+
+						'</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label  class="layui-form-label">'+
+						'		输出条数'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="number" class="layui-inline layui-input" name="field_num_'+f+'" value="10" autocomplete="off" placeholder="请填写正整数"  >'+
+						'	</div>'+
+						'	<div class="layui-input-inline">'+
+						'    <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+					    '</fieldset>';
+						
+						break;
+						case 3:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="3">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		内容'+
+						'	</label>'+
+						'	<div class="layui-input-inline" style="width:500px;">'+
+						'   <input type="text" id="'+f+'_url"  name="field_value_'+f+'" value="" autocomplete="off" placeholder="请填写图片链接" class="layui-input">'+
+						'	</div>'+
+						'	<div class="layui-inline">'+
+                        '    <button type="button" class="layui-btn" id="'+f+'_upload">上传图片</button>'+
+                        '    </div>'+
+                        '    <div class="layui-block">'+
+                        '    <img src="" width="200px" id="'+f+'_img">'+
+                        '    </div>'+
+						'	<div class="layui-input-inline">'+
+						'    <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						'</fieldset>'+
+						'<script>'+
+						'layui.use("upload", function(){'+
+						'	  var upload_'+f+' = layui.upload;'+
+						'	  var uploadInst = upload_'+f+'.render({'+
+						'		elem: "#'+f+'_upload" '+
+						'		,url: "{fun U('Common/uploads')}" '+
+						'		,data:{tid:0,molds:"sysconfig"}'+
+						'		,accept:"images"'+
+						'		,acceptMime:"image/*"'+
+						'		,done: function(res){'+
+						'			if(res.code==0){'+
+						'				 $("#'+f+'_img").attr("src",res.url);'+
+						'				 $("#'+f+'_url").val(res.url);'+
+						'			}else{'+
+						'				 layer.alert(res.error, {icon: 5});'+
+						'			}'+
+						'		}'+
+						'		,error: function(){'+
+						'		  layer.alert("上传异常！");'+
+						'		}'+
+						'	  });'+
+						'	});'+
+						'<\/script>';
+						break;
+						case 4:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="4">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly  name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'<div class="layui-input-inline layui-word-aux">'+
+						'	字段不允许修改，否则会出错'+
+						'</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		图片列表'+
+						'	</label>'+
+						'	<div class="layui-inline">'+
+                        '    <button type="button" class="layui-btn" id="'+f+'_upload">上传图片</button>'+
+                        '    </div>'+
+                        '    <div class="layui-block" id="'+f+'_img">'+
+                        '    </div>'+
+						'	<div class="layui-input-inline">'+
+						'    <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						'</fieldset>'+
+						'<script>'+
+						'layui.use("upload", function(){'+
+						'	  var upload_'+f+' = layui.upload;'+
+						'	  var uploadInst = upload_'+f+'.render({'+
+						'		elem: "#'+f+'_upload" '+
+						'		,url: "{fun U('Common/uploads')}" '+
+						'		,data:{tid:0,molds:"sysconfig"}'+
+						'		,accept:"images"'+
+						'		,multiple: true'+
+						'		,before: function(obj){'+
+						'			layer.load(); '+
+						'		  }'+
+						'		,acceptMime:"image/*"'+
+						'		,done: function(res){'+
+						'		layer.closeAll("loading");'+
+						'			if(res.code==0){'+
+						'				 $("#'+f+'_img").append(\'<div class="upload-icon-img layui-input-inline" ><div class="upload-pre-item"><img src="\' + res.url + \'" class="img" width="200px" height="200px" ><input name="'+f+'_urls[]" type="text" class="layui-input"  value="\' + res.url + \'" /><input name="'+f+'_des[]" type="text" class="layui-input"  placeholder="文字描述" value="" /><a class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger delete_file">删除</a><a class="layui-btn layui-btn-sm layui-btn-radius imgorder " onclick="goleft(this)">左移</a><a class="layui-btn layui-btn-sm layui-btn-radius imgorder " onclick="goright(this)">右移</a></div></div>\');'+
+						'			}else{'+
+						'				 layer.alert(res.error, {icon: 5});'+
+						'			}'+
+						'		}'+
+						'		,error: function(){'+
+						'		  layer.alert("上传异常！");'+
+						'		}'+
+						'	  });'+
+						'	});'+
+						'<\/script>';
+						break;
+						case 5:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="5">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		内容'+
+						'	</label>'+
+						'	<div class="layui-input-inline" style="width:500px;">'+
+						'    <input type="text" name="field_value_'+f+'" value="" autocomplete="off" placeholder="控制在25个字、50个字节以内" class="layui-input">'+
+						'	</div>'+
+						'	<div class="layui-input-inline">'+
+						'   <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						'</fieldset>';
+						break;
+						case 6:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="6">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		内容'+
+						'	</label>'+
+						'	<div class="layui-input-inline" style="width:500px;">'+
+						'    <textarea placeholder="请填写内容"  name="field_value_'+f+'" class="layui-textarea"></textarea>'+
+						'	</div>'+
+						'	<div class="layui-input-inline">'+
+						'   <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						'</fieldset>';
+						break;
+						case 7:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="7">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly  name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		内容'+
+						'	</label>'+
+						'	<div class="layui-input-block" >'+
+						'    <div  style="width:100%;">'+
+						'		<script id="'+f+'_edit" name="field_value_'+f+'" type="text/plain" style="width:100%;height:400px;"><\/script>'+
+						'	</div>'+
+						'	</div>'+
+						'	<div class="layui-input-inline">'+
+						'   <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						' <script>$(document).ready(function(){'+
+						'	var ue_'+f+'_edit = UE.getEditor("'+f+'_edit",{'+
+						'		toolbars : [[{fun str_replace(["\r\n","\r","\n"],"",$webconf['ueditor_config'])}]]'+
+						'		}'+
+						'	);'+
+						'	});'+
+						 '  <\/script>'+
+						'</fieldset>';
+						break;
+						case 8:
+						var arr = vdata.split("\n");
+						var option = '';
+						
+						for(var i=0;i<arr.length;i++){
+							if(arr[i]!=''){
+								if(arr[i]==sdata){
+								option+='<option value="'+arr[i]+'" selected>'+arr[i]+'</option>';
+								}else{
+								option+='<option value="'+arr[i]+'">'+arr[i]+'</option>';
+								}
+								
+							}
+							
+						}
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="8">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		选项'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'<select name="field_value_'+f+'">'+
+						option+
+						'</select>'+
+						'</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		选项内容'+
+						'	</label>'+
+						'	<div class="layui-input-inline" style="width:500px;">'+
+						'    <textarea placeholder="每行一个选项"  name="field_'+f+'_sdata" class="layui-textarea">'+vdata+'</textarea>'+
+						'	</div>'+
+						'	<div class="layui-input-inline">'+
+						'   <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						'</fieldset>';
+						break;
+						case 9:
+						var arr = vdata.split("\n");
+						var seletdata = sdata.replace("\n",'||');
+						var checkebox = '';
+						var s='';
+						var ss='';
+						for(var i=0;i<arr.length;i++){
+							if(arr[i]!=''){
+								s = '||'+seletdata+'||';
+								ss = '||'+arr[i]+'||';
+								if(s.indexOf(ss)>-1){
+								checkebox+='<input type="checkbox" checked name="field_value_'+f+'[]" value="'+arr[i]+'" title="'+arr[i]+'">';
+								}else{
+								checkebox+='<input type="checkbox"  name="field_value_'+f+'[]" value="'+arr[i]+'" title="'+arr[i]+'">';
+								}
+								
+							}
+							
+						}
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="9">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		选项'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						checkebox+
+						'</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		选项内容'+
+						'	</label>'+
+						'	<div class="layui-input-inline" style="width:500px;">'+
+						'    <textarea placeholder="每行一个选项"  name="field_'+f+'_sdata" class="layui-textarea">'+vdata+'</textarea>'+
+						'	</div>'+
+						'	<div class="layui-input-inline">'+
+						'   <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						'</fieldset>';
+						break;
+						case 10:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="10">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		内容'+
+						'	</label>'+
+						'	<div class="layui-input-inline" style="width:500px;">'+
+						'   <input type="text" id="'+f+'_url"  name="field_value_'+f+'" value="" autocomplete="off" placeholder="请填写文件链接" class="layui-input">'+
+						'	</div>'+
+						'	<div class="layui-inline">'+
+                        '    <button type="button" class="layui-btn" id="'+f+'_upload">上传文件</button>'+
+                        '    </div>'+
+						'	<div class="layui-input-inline">'+
+						'    <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						'</fieldset>'+
+						'<script>'+
+						'layui.use("upload", function(){'+
+						'	  var upload_'+f+' = layui.upload;'+
+						'	  var uploadInst = upload_'+f+'.render({'+
+						'		elem: "#'+f+'_upload" '+
+						'		,url: "{fun U('Common/uploads')}" '+
+						'		,data:{tid:0,molds:"sysconfig"}'+
+						'		,accept:"file"'+
+						'		,exts: "{$webconf['fileType']}"'+
+						'		,done: function(res){'+
+						'			if(res.code==0){'+
+						'				 $("#'+f+'_url").val(res.url);'+
+						'			}else{'+
+						'				 layer.alert(res.error, {icon: 5});'+
+						'			}'+
+						'		}'+
+						'		,error: function(){'+
+						'		  layer.alert("上传异常！");'+
+						'		}'+
+						'	  });'+
+						'	});'+
+						'<\/script>';
+						break;
+						case 11:
+						html='<fieldset class="layui-elem-field">'+
+						'<input type="hidden" name="field_type['+index+']" value="11">'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		字段'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" readonly  name="field['+index+']" value="'+f+'" autocomplete="off" placeholder="支持字母和下划线"  >'+
+						'	</div>'+
+						'</div>'+
+						'<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		名称'+
+						'	</label>'+
+						'	<div class="layui-input-inline">'+
+						'		<input type="text" class="layui-inline layui-input" name="field_title['+index+']" value="'+title+'" autocomplete="off" placeholder="请填写名字，为空则不显示"  >'+
+						'	</div>'+
+						'</div>'+
+					    '<div class="layui-field-box">'+
+						'	<label for="title" class="layui-form-label">'+
+						'		文件列表'+
+						'	</label>'+
+						'	<div class="layui-inline">'+
+                        '    <button type="button" class="layui-btn" id="'+f+'_upload">上传文件</button>'+
+                        '    </div>'+
+                        '    <div class="layui-block" id="'+f+'_img">'+
+                        '    </div>'+
+						'	<div class="layui-input-inline">'+
+						'    <button class="layui-btn layui-btn-danger layui-btn-sm" onclick="delblock(this)"  type="button">删除</button>'+
+						'	</div>'+
+						'</div>'+
+						'</fieldset>'+
+						'<script>'+
+						'layui.use("upload", function(){'+
+						'	  var upload_'+f+' = layui.upload;'+
+						'	  var uploadInst = upload_'+f+'.render({'+
+						'		elem: "#'+f+'_upload" '+
+						'		,url: "{fun U('Common/uploads')}" '+
+						'		,data:{tid:0,molds:"sysconfig"}'+
+						'		,accept:"file"'+
+						'		,exts: "{$webconf['fileType']}"'+
+						'		,multiple: true'+
+						'		,before: function(obj){'+
+						'			layer.load(); '+
+						'		  }'+
+						'		,done: function(res){'+
+						'		layer.closeAll("loading");'+
+						'			if(res.code==0){'+
+						'				 $("#'+f+'_img").append(\'<div class="upload-icon-img layui-input-inline" ><div class="upload-pre-item"><input name="'+f+'_urls[]" type="text" class="layui-input"  value="\' + res.url + \'" /><input name="'+f+'_des[]" type="text" class="layui-input"  placeholder="文字描述" value="" /><a class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger delete_file">删除</a><a class="layui-btn layui-btn-sm layui-btn-radius imgorder " onclick="goleft(this)">左移</a><a class="layui-btn layui-btn-sm layui-btn-radius imgorder " onclick="goright(this)">右移</a></div></div>\');'+
+						'			}else{'+
+						'				 layer.alert(res.error, {icon: 5});'+
+						'			}'+
+						'		}'+
+						'		,error: function(){'+
+						'		  layer.alert("上传异常！");'+
+						'		}'+
+						'	  });'+
+						'	});'+
+						'<\/script>';
+						break;
+						
+					}
+					$("#ext_fields").append(html);
+					
+					$("#custom_title").val('');
+					$("#custom_fields").val('');
+					form.render();
+					
+                
+                return false;
+               
+                
+              });
+			  
+			  
+			  
+			  
+              
+                
+                
+                
+                return false;
+               
+            
+
+              })
+              
+              function custom_delete(s){
+                layer.confirm('确认要删除吗？',function(index){
+                     $("#"+s).remove();
+                     layer.close(index);
+                    
+            
+                });
+              }
+             
+              
+            </script>
+            
+    </body>
+</html>

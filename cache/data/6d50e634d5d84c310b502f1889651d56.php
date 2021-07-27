@@ -1,0 +1,1 @@
+<?php die();?>{"frcache_time":-1,"frcache_data":{"web_weixin":null}}

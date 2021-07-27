@@ -1,0 +1,318 @@
+</head>
+<body class=" " style="--theme: #2299DD;">  
+
+
+<div class="site-main spimes-container">
+<div class="top-bar">  
+<div class="container clearnav secnav">
+<!--移动端按钮-->
+<nav class="navbar navbar-inverse navbar-{$tpl}style/-top">
+<div class="container">
+<div class="navbar-header">
+<div class="m_nav-list" >
+<a href="javascript:;" data-toggle="offcanvas" class="lines js-m-navlist">
+<span class="line first-line"></span>
+<span class="line second-line"></span>
+<span class="line third-line"></span>
+</a>
+</div>
+</div>
+<div id="navbar" class="collapse navbar-collapse sidebar-offcanvas">
+<!--移动导航s-->
+<input class="wb-switch wb-yes" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">  
+<div class="mobile-sidebar-column">
+<ul class="mobile-sidebar-menu ultop">
+  
+{foreach $classtypedata as $v}
+{if($v['isshow']==1)}
+{if($v['pid']==0)}
+   <li class="menu-item">
+<a href="{$v['url']}" title="{$v['classname']}"><i class="icon iconfont icon-icon-test35"></i>{$v['classname']}</a>
+{/if}
+{/if}
+{/foreach}
+</li>
+
+</ul>
+</div>
+<!--移动导航e-->
+</div><!--/.nav-collapse -->
+</div>
+</nav> 
+<div class="top-bar-left pull-left navlogo">				
+<a href="{$webconf['domain']}" class="logo box">
+<img src="{$webconf['web_logo']}" class="logo-light" id="logo-light" alt="{$webconf['web_name']}" />
+<img src="{$webconf['web_logo']}" class="logo-dark d-none" id="logo-dark" alt="{$webconf['web_name']}" />
+ <b class="shan"></b>
+</a>
+
+</div>
+<div class="search-btn">
+<!--<a href="{fun U('user/release')}" class="btn btn-blue btn-article"><i class="icon iconfont icon-icon-test10"></i> 在线投稿</a>-->
+</div>
+<div class="search-warp clearfix">
+<form action="{fun get_domain()}/search" method="GET" action="">
+
+<div class="search-area" >
+<input class="search-input" placeholder="搜索感兴趣的知识和文章" type="text" name="word" autocomplete="off" id="soblur">
+<input name="molds" type="hidden" value="article" />
+<!--弹出-->
+<ul class="dropdown-menu top_so">
+{loop table="article"  isall="1" istuijian="1" limit="5" as="v"}
+<li><a href="{$v['url']}"><span class="rank ran1">{$v_n}</span> {$v['title']}<i class="view">{$v['hits']}阅读</i></a></li>
+
+{/loop}
+<!--历史-->
+
+<div id="jl_viewHistory" >
+</div>
+<!--历史-->
+<div class="s_tag">
+{loop table="tags" isshow="1" limit="10" as="v"}
+<div class="item "><a href="{fun U('tags/index',['id'=>$v['id']])}" rel="tag"><i>#</i> {$v['keywords']}</a></div>
+{/loop}
+</div>                                
+</ul>
+<!--弹出-->
+</div>
+<button class="showhide-search search-form-input" type="submit"><i class="icon iconfont icon-sousuo"></i></button>
+</form>
+</div>
+
+  {if($islogin)}
+<!--手机端s-->
+<div class="top-bar-right pull-right text-right mobs">
+<div class="top-admin">	
+<a href="javascript:;" id="soStats" class="sostats_click"><i id="soico" class="icon iconfont icon-sousuo"></i> 搜索</a>
+    <div id="auStats" class="dropdown-toggle"><img src="{if(!$member['litpic'])}{$common}user/images/login.png{else}{$member['litpic']}{/if}" width="25px" height="25px" class="navtar" >							<div class="austats" id="aus">
+							<ul>
+							<li><a href="{fun U('user/index')}"><i class="icon iconfont icon-wodeguanzhu"></i>个人中心</a></li>
+							<li><a href="{fun U('user/release')}"><i class="icon iconfont icon-bianji"></i>发布文章</a></li>							
+							<li><a href="{fun U('login/loginout')}"><i class="icon iconfont icon-shibai"></i>退出登录</a></li>							
+							</ul>
+						    </div>	
+
+  </div>
+  
+   
+{else}
+
+
+
+
+ <!--搜索框开始-->
+
+
+
+<!--手机端s-->
+<div class="top-bar-right pull-right text-right mobs">
+<div class="top-admin">	
+<a href="javascript:;" id="soStats" class="sostats_click"><i id="soico" class="icon iconfont icon-sousuo"></i> 搜索</a>
+
+  <a href="{fun U('user/index')}"><i class="/icon iconfont icon iconfont icon-icon-test24"></i> 登录</a>
+ 
+
+{/if}
+
+
+ <!--搜索框开始-->
+<div class="navbar-search socollapse sostats" id="navbar-search" style="">
+			<div class="container">
+				<form action="{fun get_domain()}/search" method="GET" role="search" id="searchform" class="searchform shadow" action="">
+				<input name="molds" type="hidden" value="article" />
+					<div class="input-group">
+						<input type="text" name="word" id="s" placeholder="请输入搜索关键词并按回车键…" class="form-control" required="" >
+					
+						<div class="input-group-append"> 
+							<button class="btn btn-nostyle" type="submit"><i class="icon iconfont icon-sousuo"></i></button>
+						</div>
+					</div>
+<!-- /input-group -->
+				</form>
+			</div>
+</div>
+<input class="wb-switch wb-no" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">   
+</div>
+</div>
+
+<!--手机端e-->			
+</div>  
+<!--s-->
+<div class="new_header container clearnav">  
+<div class="top-bar-left pull-left navs">
+    
+ 
+    			  
+<nav class="top-bar-navigation">
+<ul class="top-bar-menu">
+<li class="menu-item"><a href="{$webconf['domain']}"><i class="icon iconfont icon-shouye1"></i> 首页</a></li>					
+<!--pc导航s-->              
+ 
+	            {foreach $classtypedata as $v}
+{if($v['isshow']==1)}
+{if($v['pid']==0)}   					                  
+<li class="nav-s"><a href="{$v['url']}" title="{$v['classname']}">{$v['classname']}</a></li>
+         {/if}
+{/if}
+{/foreach}         
+
+
+
+ 
+<!--pc导航e-->
+</ul>
+<div id="sidebar-toggle" class="sidebar-toggle">
+<span></span>
+</div>
+</nav>
+</div>
+<div class="top-bar-right pull-right text-right">
+<div class="top-admin">
+
+  {if($islogin)}
+  <!--站点统计开始-->              
+	
+  
+<a href="javascript:;" id="mStats" class="stats_click"><i class="icon iconfont icon-paihangbang"></i> 统计						<div class="stats">
+							<ul>
+														
+																					<li>文章总数：{fun M('article')->getCount(['isshow'=>1])} 篇</li>
+								<li>会员总数：{fun M('member')->getCount()} 个</li>
+							<li>留言总数：{fun M('message')->getCount(['isshow'=>1])} 条</li>
+						
+							
+							<li>分类总数：{php $num = M($v['molds'])->getCount('isshow=1 and tid in('.implode(",",$classtypedata[$v['id']]["children"]["ids"]).')'); /}
+{$num} 个</li>
+
+							</ul>
+						</div>	
+</a>
+	
+					<!--站点统计结束-->
+						<div class="login avt_tl">
+			            							
+							<div class="avt_cl"><img src="{if(!$member['litpic'])}{$common}user/images/login.png{else}{$member['litpic']}{/if}" width="25px" height="25px" class="navtar" ><!--s--><div class="header__dropdown"> 
+			
+			<div class="header-box"> 
+			<div class="refresh-header-top"> 
+			
+			<div class="header-top"> 
+			
+			<a class="user-names" href="{fun U('user/index')}">
+			<img src="{if(!$member['litpic'])}{$common}user/images/login.png{else}{$member['litpic']}{/if}" >			</a> 
+			
+			<span> <a class="user-names"  href="{fun U('user/index')}">{$member['username']}</a> <i  href="{fun U('user/index')}" class="wp wp-VIP"> 进入个人中心 </i>  </span> <p>注册会员，享受下载全站资源特权。</p>
+			<a href="{fun U('login/loginout')}" class="logout" title="退出"><i class="icon iconfont icon-shibai"></i></a>
+			</div></div> 
+			
+			
+			<div class="header-center"> <div class="md-l"> <span class="md-tit">交易信息</span> 
+			<span class="jinbi">账号ID：21</span> <span class="dou">性别：<span>{if($member['sex']==1)}男{else if($member['sex']==2)}女{else}未知{/if}</span></p>
+		 </div> <div class="md-r"> <span class="md-tit">个人信息</span> <span class="jinbi"></span> 
+		
+			<span class="dou" title="{$member['email']}">{$member['email']}</span> 
+			</div> </div>
+			
+			</div> </div>							<!--e-->
+			{else}
+  
+  <!--站点统计开始-->              
+	
+  
+<a href="javascript:;" id="mStats" class="stats_click"><i class="icon iconfont icon-paihangbang"></i> 统计						<div class="stats">
+							<ul>
+														
+																					<li>文章总数：{fun M('article')->getCount(['isshow'=>1])} 篇</li>
+								<li>会员总数：{fun M('member')->getCount()} 个</li>
+							<li>留言总数：{fun M('message')->getCount(['isshow'=>1])} 条</li>
+						
+							
+							<li>分类总数：{php $num = M($v['molds'])->getCount('isshow=1 and tid in('.implode(",",$classtypedata[$v['id']]["children"]["ids"]).')'); /}
+{$num} 个</li>
+
+							</ul>
+						</div>	
+</a>
+  
+					<!--站点统计结束-->
+					<!--站点统计结束-->
+						<div class="login avt_tl">
+			            			                <i class="icon iconfont icon-zengjia"></i><span>登录			                
+			                <!--s-->
+						
+			                <div class="header__dropdown"> 
+			
+<div class="login-div notlogin">
+<div class="info">
+<div class="info-thumb"> <i class="thumb" style="background-image:url({$tpl}style//images/wu-user.png);"></i> </div>
+<h2 class="user-name">您还未登录</h2>
+<h4 class="user-info">登录体验更多功能</h4>
+<a href="{fun U('user/index')}" class="modal-open btn btn-orange info-btn"> 立即登录 </a>
+
+</div>
+
+</div>
+	{/if}
+<style>
+.login-div {
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.login-div .info {
+   
+    position: relative;
+    padding: 10px 80px;
+}
+.login-div .info .info-thumb {
+    width: 50px;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 30px 0 #eee;
+    border-radius: 100%;
+}
+.login-div .info .info-thumb .thumb {
+    padding-top: 100%;
+    border-radius: 100%;
+    transition: none;
+}
+.login-div .info h2 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    line-height: 1.5;
+    height: 1.5em;
+    overflow: hidden;
+}
+.login-div .info h4 {
+    font-size: 12px;
+    color: #888;
+    font-weight: normal;
+    line-height: 1.5;
+    height: 1.5em;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+.login-div .info .info-btn {
+        position: absolute;
+    right: 20px;
+    top: 15px;
+    padding: 2px 10px;
+    z-index: 10;
+    font-size: 12px;
+}
+.login-div .info .info-btn:hover{ color:#fff; }
+</style>
+			
+</div>			                <!--e-->
+			                
+			                </span>
+			                
+			            			            </div>
+						<input class="wb-switch" id="J_themesSwitchBtn" type="checkbox" onclick="javascript:switchNightMode()">                
+                        <!--夜间白天-->
+				</div>
+			</div>  
+</div>

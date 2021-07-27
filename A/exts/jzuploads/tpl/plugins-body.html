@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {include="style"}
+<style>
+.layui-form-pane .layui-form-label {
+    width: 150px;
+
+}
+.layui-form-pane .layui-input-block {
+    margin-left: 150px;
+}
+</style>
+</head>
+<body >
+
+<div class="layui-tab" style="margin:15px;">
+  <ul class="layui-tab-title">
+    <li class="layui-this">插件设置</li>
+    
+
+  </ul>
+  <div class="layui-tab-content">
+    <div class="layui-tab-item layui-show">
+  <div class="layui-rows" style="margin: 10px;">
+    <form class="layui-form layui-form-pane" action="">
+	  <!--表单必须要携带ID-->
+	  <blockquote class="layui-elem-quote">选择对应的存储方式，并配置相应账户密码</blockquote>
+	<input name="id" value="{$plugins['id']}" type="hidden">
+
+		    <blockquote class="layui-elem-quote">
+				
+				温馨提示：推荐七牛云存储，如果存储不了，则会保存至本地
+			  
+			</blockquote>
+
+                    
+                    
+                <div class="layui-form-item">
+                    <label class="layui-form-label">存储方式：</label>
+                    <div class="layui-input-inline">
+                        <select class="w150" name="save_type" lay-filter="save_type">
+						<option value="1" {if($config['save_type']==1)}selected{/if}>本地保存</option>
+						<option value="2" {if($config['save_type']==2)}selected{/if}>远程访问</option>
+						<option value="3" {if($config['save_type']==3)}selected{/if}>阿里巴巴云存储</option>
+						<option value="4" {if($config['save_type']==4)}selected{/if}>FTP存储</option>
+						<option value="5" {if($config['save_type']==5)}selected{/if}>七牛云存储</option>
+						<option value="6" {if($config['save_type']==6)}selected{/if}>优启梦云存储</option>
+						<option value="7" {if($config['save_type']==7)}selected{/if}>又拍云存储</option>
+						<option value="8" {if($config['save_type']==8)}selected{/if}>新浪图床</option>
+						</select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item save_type_2 save_mode" {if($config['save_type']!=2)}style="display:none;" {/if}>
+                    <label class="layui-form-label">图片远程URL：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="upload[remoteurl]" placeholder="本地图片如存在远程，可使用此功能" value="{$config['upload']['remoteurl']}" class="layui-input w500">
+                    </div>
+                </div>
+				<div class="layui-form-item save_type_3 save_mode" {if($config['save_type']!=3)} style="display:none;" {/if}>
+				<label class="layui-form-label">阿里巴巴图床：</label>
+				<div class="layui-input-block">
+					<a href="http://alibaba.com" target="_blank" class="layui-btn layui-btn-primary">目前免费不用申请</a>
+				</div>
+				</div>
+			
+				<div class="layui-form-item save_type_4 save_mode"  {if($config['save_type']!=4)} style="display:none;" {/if}>
+				<label class="layui-form-label">FTP存储：</label>
+				<div class="layui-input-block">
+					<a href="javascript:;" class="layui-btn layui-btn-primary">请确认FTP可以正常连接</a>
+				</div>
+				</div>
+				
+				<div class="layui-form-item save_type_4 save_mode"  {if($config['save_type']!=4)} style="display:none;" {/if}>
+				<label class="layui-form-label">服务器：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[ftp][host]" placeholder="ip或域名" value="{$config['upload']['ftp']['host']}" class="layui-input" >
+				</div>
+				<label class="layui-form-label">端口：</label>
+				<div class="layui-input-inline w100">
+					<input type="text" name="upload[ftp][port]" placeholder="端口号" value="{$config['upload']['ftp']['port']}" class="layui-input" >
+				</div>
+				<label class="layui-form-label">账号：</label>
+				<div class="layui-input-inline w100">
+					<input type="text" name="upload[ftp][user]" placeholder="ftp账号" value="{$config['upload']['ftp']['user']}" class="layui-input" >
+				</div>
+				<label class="layui-form-label">密码：</label>
+				<div class="layui-input-inline w100">
+					<input type="text" name="upload[ftp][pwd]" placeholder="ftp密码" value="{$config['upload']['ftp']['pwd']}" class="layui-input" >
+				</div>
+				<label class="layui-form-label">路径：</label>
+				<div class="layui-input-inline w100">
+					<input type="text" name="upload[ftp][path]" placeholder="网站根路径" value="{$config['upload']['ftp']['path']}" class="layui-input" >
+				</div>
+				<label class="layui-form-label">外链URL：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[ftp][url]" placeholder="外链URL" value="{$config['upload']['ftp']['url']}" class="layui-input" >
+				</div>
+				</div>
+				
+				<div class="layui-form-item save_type_5 save_mode" {if($config['save_type']!=5)}style="display:none;"{/if} >
+				<label class="layui-form-label">七牛云API：</label>
+				<div class="layui-input-block">
+					<a href="https://www.qiniu.com/" target="_blank" class="layui-btn layui-btn-primary">点击申请 https://www.qiniu.com/</a>
+				</div>
+				</div>
+				<div class="layui-form-item save_type_5 save_mode" {if($config['save_type']!=5)}style="display:none;"{/if} >
+				<label class="layui-form-label">服务名：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[qiniu][bucket]" placeholder="七牛云-服务名" value="{$config['upload']['qiniu']['bucket']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">公钥：</label>
+				<div class="layui-input-inline w200">
+					<input type="password" name="upload[qiniu][accesskey]" placeholder="七牛云-公钥" value="{$config['upload']['qiniu']['accesskey']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">私钥：</label>
+				<div class="layui-input-inline w200">
+					<input type="password" name="upload[qiniu][secretkey]" placeholder="七牛云-私钥" value="{$config['upload']['qiniu']['secretkey']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">外链URL：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[qiniu][url]" placeholder="七牛云-外链URL" value="{$config['upload']['qiniu']['url']}" class="layui-input"  >
+				</div>
+				</div>
+				<div class="layui-form-item save_type_6 save_mode"  {if($config['save_type']!=6)}style="display:none;"{/if} >
+				<label class="layui-form-label">优启梦图床：</label>
+				<div class="layui-input-block">
+					<a href="http://api.uomg.com/" target="_blank" class="layui-btn layui-btn-primary">目前免费不用申请 http://api.uomg.com/</a>
+				</div>
+				</div>
+				<div class="layui-form-item save_type_6 save_mode"  {if($config['save_type']!=6)}style="display:none;"{/if} >
+				<label class="layui-form-label">OPENID：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[uomg][openid]" placeholder="" value="{$config['upload']['uomg']['openid']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">Key：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[uomg][key]" placeholder="" value="{$config['upload']['uomg']['key']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">类型：</label>
+				<div class="layui-input-inline w200">
+					<select class="w150" name="upload[uomg][type]">
+						<option value="ali" {if($config['upload']['uomg']['type']=='ali')}selected{/if}>阿里巴巴</option>
+						<option value="baidu" {if($config['upload']['uomg']['type']=='baidu')}selected{/if}>百度识图</option>
+						<option value="sina" {if($config['upload']['uomg']['type']=='sina')}selected{/if}>新浪微博</option>
+						<option value="sogou" {if($config['upload']['uomg']['type']=='sogou')}selected{/if}>搜狗图片</option>
+						<option value="juejin" {if($config['upload']['uomg']['type']=='juejin')}selected{/if}>掘金社区</option>
+						<option value="360" {if($config['upload']['uomg']['type']=='360')}selected{/if}>奇虎360</option>
+						<option value="jd" {if($config['upload']['uomg']['type']=='jd')}selected{/if}>京东商城</option>
+					</select>
+				</div>
+				</div>
+				<div class="layui-form-item save_type_7 save_mode" {if($config['save_type']!=6)}style="display:none;"{/if}  >
+				<label class="layui-form-label">又云拍API：</label>
+				<div class="layui-input-block">
+					<a href="https://www.upyun.com/" target="_blank" class="layui-btn layui-btn-primary">点击申请 https://www.upyun.com/</a>
+				</div>
+				</div>
+				<div class="layui-form-item save_type_7 save_mode" {if($config['save_type']!=6)}style="display:none;"{/if}  >
+				<label class="layui-form-label">服务名：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[upyun][bucket]" placeholder="又云拍-服务名" value="{$config['upload']['upyun']['bucket']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">操作员名：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[upyun][username]" placeholder="又云拍-操作员名" value="{$config['upload']['upyun']['username']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">操作员密码：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[upyun][pwd]" placeholder="又云拍-操作员密码" value="{$config['upload']['upyun']['pwd']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">外链URL：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[upyun][url]" placeholder="又云拍-外链URL" value="{$config['upload']['upyun']['url']}" class="layui-input"  >
+				</div>
+				</div>
+				<div class="layui-form-item save_type_8 save_mode" {if($config['save_type']!=8)}style="display:none;"{/if}  >
+				<label class="layui-form-label">新浪微博：</label>
+				<div class="layui-input-block">
+					<a href="https://www.weibo.com/" target="_blank" class="layui-btn layui-btn-primary">点击申请 https://www.weibo.com/</a>
+				</div>
+				</div>
+				<div class="layui-form-item save_type_8 save_mode" {if($config['save_type']!=8)}style="display:none;"{/if}  >
+				<label class="layui-form-label">账号：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[weibo][user]" placeholder="微博登录账号" value="{$config['upload']['weibo']['user']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">密码：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[weibo][pwd]" placeholder="微博登录密码" value="{$config['upload']['weibo']['pwd']}" class="layui-input"  >
+				</div>
+				<label class="layui-form-label">获取尺寸：</label>
+				<div class="layui-input-inline">
+					<select class="w150" name="upload[weibo][size]">
+						<option value="large" {if($config['upload']['weibo']['size']=='large')}selected{/if} >large</option>
+						<option value="bmiddle" {if($config['upload']['weibo']['size']=='bmiddle')}selected{/if}>bmiddle</option>
+						<option value="small" {if($config['upload']['weibo']['size']=='small')}selected{/if}>small</option>
+						<option value="mw2048" {if($config['upload']['weibo']['size']=='mw2048')}selected{/if}>mw2048</option>
+						<option value="mw1024" {if($config['upload']['weibo']['size']=='mw1024')}selected{/if}>mw1024</option>
+						<option value="mw690" {if($config['upload']['weibo']['size']=='mw690')}selected{/if}>mw690</option>
+						<option value="orj480" {if($config['upload']['weibo']['size']=='orj480')}selected{/if}>orj480</option>
+						<option value="orj360" {if($config['upload']['weibo']['size']=='orj360')}selected{/if}>orj360</option>
+						<option value="thumb150" {if($config['upload']['weibo']['size']=='thumb150')}selected{/if}>thumb150</option>
+						<option value="square" {if($config['upload']['weibo']['size']=='square')}selected{/if}>square</option>
+					</select>
+				</div>
+				<label class="layui-form-label">cookie：</label>
+				<div class="layui-input-inline w200">
+					<input type="text" name="upload[weibo][cookie]" placeholder="登录cookie-会自动读取" value="" class="layui-input"  >
+					<input type="hidden" name="upload[weibo][time]" placeholder="登录时间-不用设置" value="{$config['upload']['weibo']['cookie']}" class="layui-input"  >
+				</div>
+
+				</div>
+			
+               
+	
+   
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+
+    </div>
+  </div>
+</form>
+</div>
+    </div>
+    <div class="layui-tab-item">
+
+  
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+    <script>
+        $(function  () {
+      
+            layui.use('form', function(){
+              var form = layui.form;
+              form.on('select(save_type)', function(data){
+				$('.save_mode').hide();
+				$('.save_type_'+ data.value).show();
+			});
+              //监听提交
+              form.on('submit(formDemo)', function(data){
+           
+        $.post("{fun U('setconf')}",data.field,function(res){
+            //console.log(res);return false;
+           var res = JSON.parse(res);
+           if(res.code==1){
+            layer.msg(res.msg);
+           }else{
+            layer.msg(res.msg, {icon: 6,time: 2000},function(){
+            window.location.reload();
+            });
+                     
+            
+             
+           }
+        })
+        
+                return false;
+              });
+            });
+        })
+
+        
+    </script>
+
+    
+ 
+</body>
+</html>
